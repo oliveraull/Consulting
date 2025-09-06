@@ -1,0 +1,2600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oliver Aull - Social Media Lead Generation</title>
+    <meta name="description" content="Turn your social media into a lead generation machine with strategies from a content creator with 2M+ followers.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* General body styling - Now pure black */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Font styling for hero-like text */
+        .hero-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Floating elements for visual effect */
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        /* CTA button styling */
+        .cta-button {
+            background: linear-gradient(to right, #00ff88, #00d4ff);
+            color: #000000;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Hero section specific styles */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* iPhone Frame Styles - FIXED */
+        .iphone-frame {
+            position: relative;
+            width: 280px;
+            height: 580px;
+            background-color: #1a1a1a;
+            border-radius: 40px;
+            box-shadow:
+                0 0 0 8px #333,
+                0 0 0 10px #222,
+                inset 0 0 10px rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 1px solid #444;
+        }
+
+        .iphone-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 20px;
+            background-color: #000;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 2;
+        }
+
+        .iphone-frame::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 150px;
+            width: 4px;
+            height: 60px;
+            background-color: #333;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .volume-up, .volume-down, .silent-switch {
+            position: absolute;
+            background-color: #333;
+            left: -8px;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .volume-up {
+            top: 100px;
+            width: 4px;
+            height: 35px;
+        }
+
+        .volume-down {
+            top: 145px;
+            width: 4px;
+            height: 35px;
+        }
+
+        .silent-switch {
+            top: 70px;
+            width: 4px;
+            height: 18px;
+        }
+
+        .phone-screen {
+            width: calc(100% - 16px);
+            height: calc(100% - 16px);
+            background-color: #000;
+            border-radius: 30px;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 10px 15px;
+            color: #fff;
+        }
+
+        /* Video Grid Styles - FIXED */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px;
+            margin-bottom: 10px;
+        }
+
+        .video-placeholder {
+    aspect-ratio: 9/16;
+    background: #1a1a1a;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.video-placeholder iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+    pointer-events: none; /* This prevents the iframe from blocking clicks */
+}
+
+/* Replace your existing .video-overlay CSS with this: */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    z-index: 10; /* Ensure overlay is above iframe */
+    pointer-events: auto; /* Allow clicks on the overlay */
+    cursor: pointer;
+}
+
+        .platform-badge {
+            align-self: flex-start;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .tiktok-badge { background: rgba(255, 0, 80, 0.9); }
+        .instagram-badge { background: rgba(225, 48, 108, 0.9); }
+        .youtube-badge { background: rgba(255, 0, 0, 0.9); }
+        .snapchat-badge { background: rgba(255, 252, 0, 0.9); color: #000; }
+
+        .video-stats {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            color: white;
+            padding-bottom: 8px;
+        }
+
+        .heroplay-button {
+            position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #000;
+    z-index: 15; /* Ensure play button is above everything */
+    cursor: pointer;
+    transition: all 0.3s ease;
+        }
+
+        .heroplay-button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid transparent;
+            background: linear-gradient(145deg, #1a1a1a, #111111) padding-box,
+                        linear-gradient(45deg, #00ff88, #00d4ff) border-box;
+                        width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        .profile-photo-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Process Styles */
+        .process-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-bottom: 4rem;
+        }
+
+
+        .step-card {
+            background: linear-gradient(145deg, #111111 0%, #1a1a1a 100%);
+            border: 1px solid #333;
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .step-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ff88, #00d4ff, #8b5cf6);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+
+        .step-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: 20px;
+            right: 2rem;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            color: #000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .step-icon {
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .step-icon i {
+            font-size: 2rem;
+            color: #000;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover .step-icon {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .step-card:hover .step-icon i {
+            transform: scale(1.1);
+        }
+
+        .tag {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(0, 255, 136, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #00ff88;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: floatDots 6s ease-in-out infinite;
+        }
+
+        .floating-dot:nth-child(2) { 
+            top: 20%; 
+            left: 10%; 
+            animation-delay: -2s; 
+            background: #00d4ff;
+        }
+        .floating-dot:nth-child(3) { 
+            top: 60%; 
+            right: 15%; 
+            animation-delay: -4s; 
+            background: #8b5cf6;
+        }
+        .floating-dot:nth-child(4) { 
+            bottom: 30%; 
+            left: 20%; 
+            animation-delay: -1s;
+        }
+
+        @keyframes floatDots {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(-10px) translateX(-10px); }
+            75% { transform: translateY(-30px) translateX(5px); }
+        }
+
+        .benefits-grid {
+            background: linear-gradient(145deg, #111111 0%, #1a1a1a 100%);
+            border: 1px solid #333;
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-item {
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-icon::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 22px;
+            padding: 2px;
+            background: linear-gradient(135deg, #00ff88, #00d4ff, #8b5cf6);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: subtract;
+        }
+
+        .benefit-icon-inner {
+            background: #111;
+            width: 100%;
+            height: 100%;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Live Proof Styles */
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ff88;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: floatParticles 8s ease-in-out infinite;
+        }
+
+        .particle:nth-child(2) { 
+            top: 15%; 
+            left: 20%; 
+            animation-delay: -2s; 
+            background: #00d4ff;
+        }
+        .particle:nth-child(3) { 
+            top: 70%; 
+            right: 25%; 
+            animation-delay: -4s; 
+            background: #8b5cf6;
+        }
+        .particle:nth-child(4) { 
+            bottom: 40%; 
+            left: 30%; 
+            animation-delay: -1s;
+        }
+        .particle:nth-child(5) { 
+            top: 30%; 
+            right: 40%; 
+            animation-delay: -3s;
+            background: #00d4ff;
+        }
+
+        @keyframes floatParticles {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            25% { transform: translateY(-30px) translateX(15px) rotate(90deg); }
+            50% { transform: translateY(-15px) translateX(-15px) rotate(180deg); }
+            75% { transform: translateY(-40px) translateX(10px) rotate(270deg); }
+        }
+
+        .proof-card {
+            background: linear-gradient(145deg, #111111 0%, #1a1a1a 100%);
+            border: 1px solid #333;
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .proof-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff88, #00d4ff, #8b5cf6);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+
+        .proof-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: #00ff88;
+            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.15);
+        }
+
+        .proof-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .video-preview {
+            background: linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%);
+            border: 2px solid #333;
+            border-radius: 16px;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-preview:hover {
+            transform: scale(1.03);
+            border-color: #00ff88;
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .video-preview .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #000;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-preview .play-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+        }
+
+        .video-preview .play-button::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            opacity: 0.3;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.1; }
+        }
+
+        .video-preview .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-preview:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: linear-gradient(135deg, #ff3838, #ff6b6b);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: liveGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes liveGlow {
+            0% { box-shadow: 0 0 10px rgba(255, 56, 56, 0.3); }
+            100% { box-shadow: 0 0 20px rgba(255, 56, 56, 0.6); }
+        }
+
+        .views-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .strategy-card {
+            background: linear-gradient(145deg, #111111 0%, #1a1a1a 100%);
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .strategy-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-8px);
+            border-color: #00ff88;
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+        }
+
+        .strategy-card:hover::after {
+            opacity: 1;
+            animation: shimmer 1.5s ease-in-out;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(45deg) translateY(-100%); }
+            100% { transform: rotate(45deg) translateY(100%); }
+        }
+
+        .strategy-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .strategy-icon::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 22px;
+            padding: 2px;
+            background: linear-gradient(135deg, #00ff88, #00d4ff, #8b5cf6);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: subtract;
+        }
+
+        .strategy-icon-inner {
+            background: #111;
+            width: 100%;
+            height: 100%;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .strategy-card:hover .strategy-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .check-item:hover {
+            transform: translateX(8px);
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .metric-highlight {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Comparison Styles */
+        .metric-box {
+            background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,212,255,0.1) 100%);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .metric-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: xor;
+        }
+
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            transform: translateX(30px);
+        }
+
+        .timeline-item:nth-child(even).visible .timeline-content {
+            transform: translateX(0);
+        }
+
+        .comparison-grid {
+            background: linear-gradient(145deg, #111111 0%, #1a1a1a 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparison-grid::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,255,136,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .before-after-item {
+            position: relative;
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .before-item {
+            background: linear-gradient(135deg, rgba(239,68,68,0.05) 0%, rgba(220,38,38,0.1) 100%);
+            border-left: 4px solid #ef4444;
+        }
+
+        .after-item {
+            background: linear-gradient(135deg, rgba(34,197,94,0.05) 0%, rgba(21,128,61,0.1) 100%);
+            border-left: 4px solid #22c55e;
+        }
+
+        .stats-showcase {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .main-stat {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,212,255,0.05) 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #00ff88, #00d4ff);
+        }
+
+        .side-stat {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .side-stat:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,255,136,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .stats-showcase {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Pain Points Styles */
+        .pain-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(239,68,68,0.08) 100%);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pain-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #ef4444, #dc2626);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(239, 68, 68, 0.4);
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.1);
+        }
+
+        .pain-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pain-icon {
+            font-size: 3rem;
+            color: #ef4444;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-container {
+            background: linear-gradient(145deg, #111111 0%, #1a1a1a 100%);
+            border: 2px solid rgba(0, 255, 136, 0.2);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #00ff88 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
+        }
+
+      .reveal-element {
+    transition: all 0.8s ease;
+}
+
+.reveal-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Unfair Advantage Styles */
+        .border-gradient {
+            position: relative;
+            background: linear-gradient(145deg, #1a1a1a 0%, #111111 100%);
+            border-radius: 20px;
+            padding: 2px;
+        }
+
+        .border-gradient::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff, #00ff88);
+            border-radius: 20px;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: borderRotate 3s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { background: linear-gradient(45deg, #00ff88, #00d4ff, #00ff88); }
+            33% { background: linear-gradient(45deg, #00d4ff, #00ff88, #00d4ff); }
+            66% { background: linear-gradient(45deg, #00ff88, #00d4ff, #00ff88); }
+            100% { background: linear-gradient(45deg, #00d4ff, #00ff88, #00d4ff); }
+        }
+
+        .border-gradient-inner {
+            background: linear-gradient(145deg, #1a1a1a 0%, #111111 100%);
+            border-radius: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Card hover effects */
+        .advantage-card {
+            background: linear-gradient(145deg, #1a1a1a 0%, #111111 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .advantage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .advantage-card:hover::before {
+            left: 100%;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 255, 136, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+        }
+
+        /* Stats card styling */
+        .stats-card {
+            background: linear-gradient(145deg, #1a1a1a 0%, #111111 100%);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 16px;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .stats-card:hover::before {
+            opacity: 1;
+        }
+
+        .stats-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Profile image styling */
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-badge {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+            animation: profilePulse 2s infinite;
+        }
+
+        @keyframes profilePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Icon styling */
+        .advantage-icon {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.2) 0%, rgba(0, 212, 255, 0.2) 100%);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .advantage-card:hover .advantage-icon {
+            transform: scale(1.1) rotate(5deg);
+            border-color: rgba(0, 255, 136, 0.6);
+        }
+
+        /* CTA section specific styles */
+.main-container {
+    background: linear-gradient(145deg, #0a0a0a 0%, #000000 100%);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.main-container::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #00ff88 0%, transparent 70%);
+    opacity: 0.08;
+    border-radius: 50%;
+}
+
+.action-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.action-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #00ff88, #00d4ff);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 255, 136, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.action-card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: #00ff88;
+}
+
+.card-download .card-icon {
+    color: #00ff88;
+}
+
+.card-call .card-icon {
+    color: #00d4ff;
+}
+
+/* Exit Popup Specific Styles */
+.exit-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 99999;
+    animation: fadeIn 0.3s ease;
+}
+
+.exit-popup.active {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.exit-popup-content {
+    background: linear-gradient(145deg, #1a1a1a 0%, #111111 100%);
+    border: 2px solid rgba(0, 255, 136, 0.5);
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.exit-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.exit-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.form-input {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-input::placeholder {
+    color: #888;
+}
+
+.form-input:focus {
+    border-color: #00ff88;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+}
+
+/* Sticky CTA styling */
+.sticky-cta {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* New, single-definition styles */
+.profile-image {
+    width: 375px;
+    height: 375px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid transparent;
+    background: linear-gradient(145deg, #1a1a1a, #111111) padding-box, linear-gradient(45deg, #00ff88, #00d4ff) border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.cta-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+    min-height: 320px;
+}
+
+.main-content {
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.15) 0%, rgba(0, 212, 255, 0.15) 100%);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 16px;
+    padding: 5rem 3rem;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.main-content:hover::before {
+    opacity: 1;
+}
+
+.main-content>* {
+    position: relative;
+    z-index: 2;
+}
+
+.sidebar {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.sidebar:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 255, 136, 0.2);
+}
+
+.sidebar>div {
+    transition: all 0.3s ease;
+}
+
+.sidebar>div:hover {
+    transform: translateY(-2px);
+}
+
+.section-bg-option-3 {
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
+            border-top: 1px solid rgba(0, 255, 136, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg-option-3::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                linear-gradient(45deg, transparent 49%, rgba(0, 255, 136, 0.02) 49.5%, rgba(0, 255, 136, 0.02) 50.5%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(0, 212, 255, 0.02) 49.5%, rgba(0, 212, 255, 0.02) 50.5%, transparent 51%);
+            background-size: 60px 60px;
+            animation: backgroundShift 20s ease-in-out infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes backgroundShift {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(-30px) translateY(-30px); }
+        }
+
+/* CTA button (used in the exit popup) */
+.cta-button {
+    background: linear-gradient(to right, #00ff88, #00d4ff);
+    color: #000000;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Merged Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-font.text-4xl,
+    .hero-font.text-6xl {
+        font-size: 2.5rem;
+    }
+
+    .hero-font.text-5xl,
+    .hero-font.text-7xl {
+        font-size: 2rem;
+    }
+
+    .main-container {
+        padding: 2rem 1rem;
+    }
+
+    .step-card {
+        padding: 2rem;
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        right: 1.5rem;
+        top: 15px;
+    }
+
+    .step-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .step-icon i {
+        font-size: 1.5rem;
+    }
+
+    .benefits-grid {
+        padding: 2rem;
+    }
+
+    .proof-card {
+        padding: 2rem;
+    }
+
+    .strategy-card {
+        padding: 1.5rem;
+    }
+
+    .video-preview .play-button {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+    }
+
+    .strategy-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .profile-image {
+        max-width: 300px;
+    }
+
+    .cta-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        min-height: auto;
+    }
+
+    .main-content {
+        padding: 2rem;
+    }
+
+    .sidebar {
+        padding: 1.5rem;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .sidebar>div {
+        margin-bottom: 0;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="sticky-cta">
+        <a href="#contact-section" class="cta-button">
+            Get Free Strategy Call
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+        <div class="absolute inset-0">
+            <div class="floating-element absolute top-20 left-10 w-20 h-20 bg-green-400 rounded-full opacity-10 blur-xl"></div>
+            <div class="floating-element absolute bottom-32 right-20 w-32 h-32 bg-blue-400 rounded-full opacity-10 blur-xl" style="animation-delay: 2s;"></div>
+            <div class="floating-element absolute top-1/2 left-1/4 w-16 h-16 bg-purple-400 rounded-full opacity-10 blur-xl" style="animation-delay: 4s;"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-left">
+                <p class="text-green-400 font-semibold text-sm uppercase tracking-wider mb-4"> FROM CONTENT CREATOR TO BUSINESS STRATEGIST </p>
+                <h1 class="hero-font text-6xl lg:text-7xl font-bold leading-tight mb-6"> <span class="gradient-text">Stop</span> Posting Into The Void. <span class="gradient-text">Start </span>Generating Leads </h1>
+                <p class="text-xl text-gray-300 mb-8 leading-relaxed"> Your competitors are stealing customers while you're stuck wondering what to post. Let's fix that in 30 days. My Followers: </p>
+                <div class="hero-stats mb-8">
+                    <div class="flex items-center space-x-2">
+                        <i class="fab fa-tiktok text-pink-500 text-3xl"></i>
+                        <div>
+                            <p class="text-2xl font-bold">1.5M</p>
+                            <p class="text-sm text-gray-400">TikTok</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fab fa-snapchat-ghost text-yellow-400 text-3xl"></i>
+                        <div>
+                            <p class="text-2xl font-bold">170k</p>
+                            <p class="text-sm text-gray-400">Snapchat</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fab fa-youtube text-red-500 text-3xl"></i>
+                        <div>
+                            <p class="text-2xl font-bold">150k</p>
+                            <p class="text-sm text-gray-400">YouTube</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fab fa-instagram text-purple-400 text-3xl"></i>
+                        <div>
+                            <p class="text-2xl font-bold">115k</p>
+                            <p class="text-sm text-gray-400">Instagram</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact-section" class="cta-button"> Get Your Free Strategy Call </a>
+                    <a href="#story" class="border border-gray-600 text-white px-8 py-4 rounded-full font-medium hover:border-green-400 transition-colors"> See My Story </a>
+                </div>
+            </div>
+            <div class="flex justify-center lg:justify-end">
+                <div class="iphone-frame">
+                    <div class="volume-up"></div>
+                    <div class="volume-down"></div>
+                    <div class="silent-switch"></div>
+                    <div class="phone-screen">
+                        <div class="flex flex-col items-center mb-4">
+                            <div class="profile-photo-small w-16 h-16 mb-2">
+                                <img src="https://shoutoutla.s3.us-west-1.amazonaws.com/wp-content/uploads/2024/08/c-1722799309266-1722799308867_oliver_aull_taooliver-6.png" alt="Oliver Aull Profile" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm text-gray-400">@oliveraull</p>
+                        </div>
+                        <div class="video-grid">
+                                 <!-- TikTok Video -->
+            <div class="video-placeholder" onclick="window.open('https://www.tiktok.com/@oliveraull/video/7139934005830372613?lang=en')">
+                <div class="video-overlay">
+                    <div class="platform-badge tiktok-badge">TikTok</div>
+                    <div class="video-stats">
+                        <i class="fas fa-play"></i>
+                        <span>10.5M</span>
+                        <i class="fas fa-heart"></i>
+                        <span>712K</span>
+                    </div>
+                </div>
+                <div class="heroplay-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+                                <!-- Instagram Video -->
+            <div class="video-placeholder" onclick="window.open('https://www.instagram.com/reel/C_YmLN7y-kX/?utm_source=ig_web_copy_link&igsh=MWU3ZWx6azAwMGFtZA==')">
+                                <div class="video-overlay">
+                                    <div class="platform-badge instagram-badge">Instagram</div>
+                                    <div class="video-stats">
+                                        <i class="fas fa-play"></i><span>17.1M</span>
+                                        <i class="fas fa-heart"></i><span>451K</span>
+                                    </div>
+                                </div>
+                                <div class="heroplay-button"><i class="fas fa-play"></i></div>
+                            </div>
+
+                            <!-- Youtube Video -->
+                            <div class="video-placeholder" onclick="window.open('https://www.youtube.com/shorts/gLBwToCymgM')">
+                                <div class="video-overlay">
+                                    <div class="platform-badge youtube-badge">YouTube</div>
+                                    <div class="video-stats">
+                                        <i class="fas fa-play"></i><span>4.3M</span>
+                                        <i class="fas fa-thumbs-up"></i><span>304K</span>
+                                    </div>
+                                </div>
+                                <div class="heroplay-button"><i class="fas fa-play"></i></div>
+                            </div>
+
+                            <!-- Snapchat Video -->
+                            <div class="video-placeholder" onclick="window.open('https://t.snapchat.com/X2g7oQsA')">
+                                <div class="video-overlay">
+                                    <div class="platform-badge snapchat-badge">Snapchat</div>
+                                    <div class="video-stats">
+                                        <i class="fas fa-play"></i><span>1.5M</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="heroplay-button"><i class="fas fa-play"></i></div>
+                            </div>
+
+                            <!-- TikTok 2 Video -->
+                            <div class="video-placeholder" onclick="window.open('https://www.tiktok.com/@oliveraull/video/7150695360497798405?lang=en')">
+                                <div class="video-overlay">
+                                    <div class="platform-badge tiktok-badge">TikTok</div>
+                                    <div class="video-stats">
+                                        <i class="fas fa-play"></i><span>6.8M</span>
+                                        <i class="fas fa-heart"></i><span>1.3M</span>
+                                    </div>
+                                </div>
+                                <div class="heroplay-button"><i class="fas fa-play"></i></div>
+                            </div>
+
+                            <!-- Instagram 2 Video -->
+                            <div class="video-placeholder" onclick="window.open('https://www.instagram.com/reel/CszLSq4MQOV/')">
+                                <div class="video-overlay">
+                                    <div class="platform-badge instagram-badge">Instagram</div>
+                                    <div class="video-stats">
+                                        <i class="fas fa-play"></i><span>5.1M</span>
+                                        <i class="fas fa-heart"></i><span>319K</span>
+                                    </div>
+                                </div>
+                                <div class="heroplay-button"><i class="fas fa-play"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-full blur-xl floating-element"></div>
+            <div class="absolute bottom-20 left-10 w-40 h-40 bg-gradient-to-br from-green-400/10 to-cyan-400/10 rounded-full blur-2xl floating-element" style="animation-delay: -3s;"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal-element">
+                <div class="inline-flex items-center bg-gradient-to-r from-red-500/20 to-orange-500/20 px-6 py-3 rounded-full text-red-300 font-semibold mb-8">
+                    <div class="w-2 h-2 bg-red-400 rounded-full pulse-dot mr-3"></div>
+                    STOP if this sounds like you
+                </div>
+                <h2 class="hero-font text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                    You're <span class="text-red-400">Stuck</span> in Social Media <span class="gradient-text">Hell</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Every entrepreneur faces these soul-crushing moments. The question is: how long will you let them continue?
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                
+
+                <div class="pain-card reveal-element" style="animation-delay: 0.2s;">
+                    <div class="pain-icon"><i class="fas fa-clock"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Hours of Wasted Time</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        You spend 3+ hours creating the "perfect" post, only to get 5 likes and zero leads.
+                    </p>
+                </div>
+
+                <div class="pain-card reveal-element" style="animation-delay: 0.3s;">
+                    <div class="pain-icon"><i class="fas fa-ghost"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Posting Into the Void</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Your content gets buried in the algorithm while competitors with worse content get all the attention.
+                    </p>
+                </div>
+
+                
+
+                <div class="pain-card reveal-element" style="animation-delay: 0.5s;">
+                    <div class="pain-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Zero ROI from Social</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Despite posting daily, your social media generates exactly zero leads and zero revenue.
+                    </p>
+                </div>
+
+                
+            </div>
+
+            <div class="stats-container reveal-element">
+                <div class="text-center relative z-10">
+                    <h3 class="hero-font text-3xl lg:text-4xl font-bold mb-8">
+                        The <span class="text-red-400">Brutal</span> Reality
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div class="text-center">
+                            <div class="text-5xl font-bold text-red-400 mb-2">87%</div>
+                            <div class="text-gray-400">of entrepreneurs waste 10+ hours weekly on social media</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-5xl font-bold gradient-text mb-2">$47K</div>
+                            <div class="text-gray-400">average annual revenue lost to poor social strategy</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-5xl font-bold text-red-400 mb-2">312</div>
+                            <div class="text-gray-400">hours you've already wasted this year</div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl p-8 border border-red-500/20">
+                        <p class="text-2xl font-semibold text-white mb-4">
+                            Every day you delay is another day your competitors get stronger
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            While you're stuck in the content creation hamster wheel, they're booking clients and building empires. 
+                            <span class="text-green-400 font-semibold">But it doesn't have to stay this way...</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--What Changes Section-->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-green-400/10 to-cyan-400/10 rounded-full blur-2xl floating-element"></div>
+            <div class="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-br from-cyan-400/15 to-green-400/15 rounded-full blur-xl floating-element" style="animation-delay: -4s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="hero-font text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                    What Changes When We <span class="gradient-text">Work Together</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                    Stop guessing and start growing. Here are the specific, measurable outcomes you can expect.
+                </p>
+            </div>
+
+            <div class="stats-showcase mb-20">
+                <div class="main-stat">
+                    <div class="text-6xl font-bold gradient-text mb-4">$25K+</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Monthly Revenue Increase</h3>
+                    <p class="text-gray-400">Transform your social media into a predictable profit center that generates consistent monthly revenue</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="side-stat">
+                        <div class="text-3xl font-bold text-green-400 mb-2">8+</div>
+                        <div class="text-sm text-gray-300">Hours Saved Weekly</div>
+                    </div>
+                    <div class="side-stat">
+                        <div class="text-3xl font-bold text-cyan-400 mb-2">15+</div>
+                        <div class="text-sm text-gray-300">Qualified Leads Monthly</div>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="side-stat">
+                        <div class="text-3xl font-bold text-green-400 mb-2">300%</div>
+                        <div class="text-sm text-gray-300">Engagement Increase</div>
+                    </div>
+                    <div class="side-stat">
+                        <div class="text-3xl font-bold text-cyan-400 mb-2">60</div>
+                        <div class="text-sm text-gray-300">Days to Results</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison-grid mb-20">
+                <div class="text-center mb-12 relative z-10">
+                    <h3 class="hero-font text-4xl font-bold mb-4">Your Transformation: <span class="gradient-text">Before vs After</span></h3>
+                    <p class="text-gray-400">Real results from entrepreneurs who made the switch</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-8 relative z-10">
+                    <div class="space-y-6">
+                        <div class="text-center mb-6">
+                            <span class="bg-red-500 text-white px-4 py-2 rounded-full font-bold text-sm">BEFORE</span>
+                        </div>
+                        <div class="before-after-item before-item">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-times text-red-400 mr-3"></i>
+                                <span class="font-semibold">3-5 likes per post</span>
+                            </div>
+                            <p class="text-gray-400 text-sm ml-6">Content gets buried in the algorithm</p>
+                        </div>
+                        <div class="before-after-item before-item">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-times text-red-400 mr-3"></i>
+                                <span class="font-semibold">0 leads from social media</span>
+                            </div>
+                            <p class="text-gray-400 text-sm ml-6">All that effort with zero ROI</p>
+                        </div>
+                        <div class="before-after-item before-item">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-times text-red-400 mr-3"></i>
+                                <span class="font-semibold">Posting randomly 2-3x per week</span>
+                            </div>
+                            <p class="text-gray-400 text-sm ml-6">No strategy, just hoping something sticks</p>
+                        </div>
+                        <div class="before-after-item before-item">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-times text-red-400 mr-3"></i>
+                                <span class="font-semibold">10+ hours weekly on content</span>
+                            </div>
+                            <p class="text-gray-400 text-sm ml-6">Time that could be spent growing your business</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="text-center mb-6">
+                            <span class="bg-green-500 text-white px-4 py-2 rounded-full font-bold text-sm">AFTER 60 DAYS</span>
+                        </div>
+                        <div class="before-after-item after-item">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                <span class="font-semibold">50-200+ likes per post</span>
+                            </div>
+                            <p class="text-gray-400 text-sm ml-6">Content that actually gets seen and shared</p>
+                        </div>
+                        <div class="before-after-item after-item">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                <span class="font-semibold">8-12 qualified leads monthly</span>
+                            </div>
+                            <p class="text-gray-400 text-sm ml-6">Real prospects ready to become customers</p>
+                        </div>
+                        <div class="before-after-item after-item">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                <span class="font-semibold">Consistent daily posting</span>
+                            </div>
+                            <p class="text-gray-400 text-sm ml-6">Strategic content that builds your authority</p>
+                        </div>
+                        <div class="before-after-item after-item">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                <span class="font-semibold">$15K+ additional monthly revenue</span>
+                            </div>
+                            <p class="text-gray-400 text-sm ml-6">Social media that actually pays the bills</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mb-12">
+                <h3 class="hero-font text-3xl font-bold mb-4">Build <span class="gradient-text">Unshakeable Authority</span></h3>
+                <p class="text-gray-400 max-w-2xl mx-auto">Position yourself as the go-to expert in your industry</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
+                <div class="flex-1 min-w-64 bg-gradient-to-br from-gray-800/30 to-gray-900/50 rounded-2xl p-6 border border-gray-700/30">
+                    <div class="text-center">
+                        <i class="fas fa-crown text-4xl text-yellow-400 mb-4"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Industry Recognition</h4>
+                        <p class="text-gray-400 text-sm">Become the expert everyone turns to for advice and solutions</p>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-64 bg-gradient-to-br from-gray-800/30 to-gray-900/50 rounded-2xl p-6 border border-gray-700/30">
+                    <div class="text-center">
+                        <i class="fas fa-microphone text-4xl text-purple-400 mb-4"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Speaking Opportunities</h4>
+                        <p class="text-gray-400 text-sm">Get invited to podcasts, events, and industry panels</p>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-64 bg-gradient-to-br from-gray-800/30 to-gray-900/50 rounded-2xl p-6 border border-gray-700/30">
+                    <div class="text-center">
+                        <i class="fas fa-handshake text-4xl text-blue-400 mb-4"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Premium Partnerships</h4>
+                        <p class="text-gray-400 text-sm">Attract high-value collaborations and joint ventures</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Strategic Advantage Section -->
+    <section id="strategic-process" class="relative py-20 bg-black overflow-hidden">
+        <div class="floating-elements">
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-20">
+                <p class="text-sm uppercase tracking-widest text-gray-400 mb-4 hero-font">MY STRATEGIC PROCESS</p>
+                <h2 class="hero-font text-5xl md:text-6xl font-bold mb-8 gradient-text">
+                    From Creative Insight to Real Results
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    My proven 5-step process combines creator intuition with business strategy to deliver content that both captivates and converts.
+                </p>
+            </div>
+
+            <!-- Process Steps -->
+            <div class="process-container">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="flex flex-col lg:flex-row items-start gap-6">
+                            <div class="step-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="hero-font text-2xl font-bold mb-4 text-white">Deep Brand Immersion</h3>
+                                <p class="text-gray-300 mb-6 leading-relaxed">
+                                    I don't just learn your business—I live it. I study your industry, competitors, and audience like a creator studies algorithms. This deep dive reveals untapped creative opportunities that others miss.
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="tag">Competitor Analysis</span>
+                                    <span class="tag">Audience Psychology</span>
+                                    <span class="tag">Brand Voice Definition</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="flex flex-col lg:flex-row items-start gap-6">
+                            <div class="step-icon">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="hero-font text-2xl font-bold mb-4 text-white">Creative Strategy Architecture</h3>
+                                <p class="text-gray-300 mb-6 leading-relaxed">
+                                    Using creator insights, I build a content ecosystem that balances viral potential with business objectives. Every post serves a purpose in your larger growth story.
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="tag">Content Pillars</span>
+                                    <span class="tag">Viral Frameworks</span>
+                                    <span class="tag">Platform Strategy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="flex flex-col lg:flex-row items-start gap-6">
+                            <div class="step-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="hero-font text-2xl font-bold mb-4 text-white">Content Creation & Production</h3>
+                                <p class="text-gray-300 mb-6 leading-relaxed">
+                                    This is where the magic happens. I create content that feels native to each platform while staying true to your brand. Every piece is crafted with viral potential and business impact in mind.
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="tag">Video Production</span>
+                                    <span class="tag">Graphic Design</span>
+                                    <span class="tag">Copy Writing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <div class="flex flex-col lg:flex-row items-start gap-6">
+                            <div class="step-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="hero-font text-2xl font-bold mb-4 text-white">Strategic Distribution</h3>
+                                <p class="text-gray-300 mb-6 leading-relaxed">
+                                    Timing is everything in social media. I leverage my creator knowledge of platform algorithms and optimal posting windows to maximize your content's reach and engagement.
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="tag">Algorithm Optimization</span>
+                                    <span class="tag">Cross-Platform Sync</span>
+                                    <span class="tag">Trend Integration</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="process-step">
+                    <div class="step-card">
+                        <div class="step-number">05</div>
+                        <div class="flex flex-col lg:flex-row items-start gap-6">
+                            <div class="step-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="hero-font text-2xl font-bold mb-4 text-white">Performance & Optimization</h3>
+                                <p class="text-gray-300 mb-6 leading-relaxed">
+                                    I obsess over the data like a creator obsesses over views. Every metric tells a story, and I use these insights to continuously refine and improve your content strategy.
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="tag">Analytics Deep-Dive</span>
+                                    <span class="tag">A/B Testing</span>
+                                    <span class="tag">Strategy Evolution</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Benefits -->
+            <div class="mt-20">
+                <div class="benefits-grid">
+                    <div class="text-center mb-12">
+                        <h3 class="hero-font text-3xl md:text-4xl font-bold mb-6 gradient-text">Why This Process Works</h3>
+                        <p class="text-gray-400 max-w-2xl mx-auto">
+                            The perfect blend of creative intuition and strategic business thinking
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <div class="benefit-icon-inner">
+                                    <i class="fas fa-brain text-2xl gradient-text"></i>
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-xl mb-3 text-white">Creator Intuition</h4>
+                            <p class="text-gray-300 leading-relaxed">
+                                I know what makes content viral because I've created viral content myself
+                            </p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <div class="benefit-icon-inner">
+                                    <i class="fas fa-bullseye text-2xl gradient-text"></i>
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-xl mb-3 text-white">Business Focus</h4>
+                            <p class="text-gray-300 leading-relaxed">
+                                Every creative decision is aligned with your revenue and growth objectives
+                            </p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <div class="benefit-icon-inner">
+                                    <i class="fas fa-sync text-2xl gradient-text"></i>
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-xl mb-3 text-white">Continuous Evolution</h4>
+                            <p class="text-gray-300 leading-relaxed">
+                                Social media changes daily—so does my strategy to keep you ahead
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- My Unfair Advantage Section -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="hero-font text-4xl lg:text-5xl font-bold mb-6">
+                    My Unfair <span class="gradient-text">Advantage</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-400 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Creator Psychology vs Business Logic – While others follow outdated playbooks, 
+                    I decode what actually makes people stop scrolling and take action.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <!-- Advantages Cards -->
+                <div class="order-2 lg:order-1">
+                    <div class="space-y-6">
+                        <div class="advantage-card">
+                            <div class="advantage-icon">
+                                <i class="fas fa-brain text-2xl text-green-400"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-green-400 mb-4">Creator Psychology Mastery</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed">
+                                Most businesses think like businesses. I think like a creator who understands the psychological triggers that make content irresistible and drive real engagement.
+                            </p>
+                        </div>
+                        
+                        <div class="advantage-card">
+                            <div class="advantage-icon">
+                                <i class="fas fa-chart-line text-2xl text-blue-400"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-blue-400 mb-4">Algorithm Insider Knowledge</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed">
+                                With 1.9M+ followers, I've reverse-engineered exactly how platforms decide what goes viral. This isn't theory – it's battle-tested data from the trenches.
+                            </p>
+                        </div>
+                        
+                        <div class="advantage-card">
+                            <div class="advantage-icon">
+                                <i class="fas fa-bullseye text-2xl text-purple-400"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-purple-400 mb-4">Platform-Specific Secrets</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed">
+                                Each platform rewards different behaviors. I know the exact posting times, formats, and psychological triggers that unlock maximum reach on each one.
+                            </p>
+                        </div>
+                        
+                        <div class="advantage-card">
+                            <div class="advantage-icon">
+                                <i class="fas fa-lightning-bolt text-2xl text-yellow-400"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-yellow-400 mb-4">Real-Time Trend Detection</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed">
+                                While others follow outdated advice, I spot emerging trends and algorithm changes before they become common knowledge, keeping you ahead of the curve.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile and Stats -->
+                <div class="order-1 lg:order-2 text-center">
+                    <div class="profile-wrapper mb-12">
+                        <img src="https://shoutoutla.s3.us-west-1.amazonaws.com/wp-content/uploads/2024/08/c-1722799309266-1722799308867_oliver_aull_taooliver-6.png" 
+                             alt="Oliver Aull" 
+                             class="profile-image mx-auto">
+                        <div class="profile-badge">
+                            <i class="fas fa-fire mr-2"></i>1.9M+ Followers
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="stats-card" style="--gradient-start: #00ff88; --gradient-end: #00d4ff;">
+                            <div class="text-5xl font-bold gradient-text mb-3">1.9M+</div>
+                            <div class="text-gray-300 font-semibold text-lg">Total Followers</div>
+                            <div class="text-gray-400 text-sm mt-2">Across All Platforms</div>
+                        </div>
+                        
+                        <div class="stats-card" style="--gradient-start: #00d4ff; --gradient-end: #8b5cf6;">
+                            <div class="text-5xl font-bold gradient-text mb-3">150+</div>
+                            <div class="text-gray-300 font-semibold text-lg">Viral Posts</div>
+                            <div class="text-gray-400 text-sm mt-2">1M+ Views Each</div>
+                        </div>
+                        
+                        <div class="stats-card" style="--gradient-start: #8b5cf6; --gradient-end: #ec4899;">
+                            <div class="text-5xl font-bold gradient-text mb-3">500M+</div>
+                            <div class="text-gray-300 font-semibold text-lg">Total Views</div>
+                            <div class="text-gray-400 text-sm mt-2">Content Impressions</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="mt-8 p-6 border-gradient">
+                        <div class="border-gradient-inner p-6">
+                            <div class="flex items-center justify-center space-x-6 text-gray-300">
+                                <div class="text-center">
+                                    <i class="fas fa-shield-alt text-2xl text-green-400 mb-2"></i>
+                                    <div class="text-sm font-semibold">Proven Results</div>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-rocket text-2xl text-blue-400 mb-2"></i>
+                                    <div class="text-sm font-semibold">Cutting Edge</div>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-trophy text-2xl text-yellow-400 mb-2"></i>
+                                    <div class="text-sm font-semibold">Industry Leader</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background Effects -->
+        <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-green-400 opacity-5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400 opacity-5 rounded-full blur-3xl"></div>
+    </section>
+
+
+
+    <!-- live proof section -->
+    <section class="py-20 bg-black relative overflow-hidden">
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-20 fade-in">
+                <p class="text-sm uppercase tracking-widest text-gray-400 mb-4 hero-font">PROOF OF CONCEPT</p>
+                <h2 class="hero-font text-4xl lg:text-6xl font-bold mb-8">
+                    <span class="gradient-text">Live Proof</span> of My Expertise
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                    Since I can't show you client results yet, let me demonstrate my analytical skills in real-time by breaking down successful (and struggling) business accounts.
+                </p>
+            </div>
+
+            <!-- Main Proof Videos -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-20">
+                <div class="proof-card fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-search text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Live Account Analysis</h3>
+                    </div>
+                    
+                    <div class="video-preview">
+                        <div class="video-overlay"></div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="live-badge">
+                            <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                            LIVE
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Watch me analyze a struggling business account and explain exactly what I'd change to 10x their engagement in the next 30 days.
+                    </p>
+                    
+                    <div class="space-y-3">
+                        <div class="check-item">
+                            <div class="check-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-gray-300">Content audit in 60 seconds</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-gray-300">Algorithm optimization spots</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-gray-300">Viral content opportunities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proof-card fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Viral Content Breakdown</h3>
+                    </div>
+                    
+                    <div class="video-preview">
+                        <div class="video-overlay"></div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="views-badge">
+                            2.4M VIEWS
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Real-time reaction and analysis of viral business content - revealing the psychology and strategy behind millions of views.
+                    </p>
+                    
+                    <div class="space-y-3">
+                        <div class="check-item">
+                            <div class="check-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-gray-300">Hook analysis breakdown</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-gray-300">Algorithm trigger points</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-gray-300">Engagement maximizers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategy Examples Header -->
+            <div class="text-center mb-12 fade-in">
+                <h3 class="hero-font text-3xl md:text-4xl font-bold mb-6 gradient-text">
+                    Real Strategy Examples
+                </h3>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    See exactly how I'd transform struggling accounts across different industries
+                </p>
+            </div>
+
+            <!-- Mock Strategy Examples -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="strategy-card fade-in">
+                    <div class="strategy-icon">
+                        <div class="strategy-icon-inner">
+                            <i class="fas fa-utensils text-3xl gradient-text"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">Restaurant Chain</h4>
+                    
+                    <div class="metric-highlight">
+                        <div class="text-sm text-gray-400 mb-1">Current Performance</div>
+                        <div class="text-red-400 font-semibold">2K followers • 50 likes avg</div>
+                    </div>
+                    
+                    <div class="text-left mb-4">
+                        <div class="text-green-400 font-semibold mb-2">My Strategy:</div>
+                        <div class="text-gray-300 text-sm leading-relaxed">
+                            Behind-the-scenes kitchen content + customer reactions + chef personality showcase
+                        </div>
+                    </div>
+                    
+                    <div class="metric-highlight">
+                        <div class="text-sm text-gray-400 mb-1">90-Day Projection</div>
+                        <div class="text-green-400 font-semibold">25K followers • 2K+ engagement</div>
+                    </div>
+                </div>
+
+                <div class="strategy-card fade-in">
+                    <div class="strategy-icon">
+                        <div class="strategy-icon-inner">
+                            <i class="fas fa-dumbbell text-3xl gradient-text"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">Fitness Coach</h4>
+                    
+                    <div class="metric-highlight">
+                        <div class="text-sm text-gray-400 mb-1">Current Performance</div>
+                        <div class="text-red-400 font-semibold">5K followers • 200 likes avg</div>
+                    </div>
+                    
+                    <div class="text-left mb-4">
+                        <div class="text-green-400 font-semibold mb-2">My Strategy:</div>
+                        <div class="text-gray-300 text-sm leading-relaxed">
+                            Transformation stories + myth-busting content + day-in-the-life vlogs
+                        </div>
+                    </div>
+                    
+                    <div class="metric-highlight">
+                        <div class="text-sm text-gray-400 mb-1">90-Day Projection</div>
+                        <div class="text-green-400 font-semibold">50K followers • 5K+ engagement</div>
+                    </div>
+                </div>
+
+                <div class="strategy-card fade-in">
+                    <div class="strategy-icon">
+                        <div class="strategy-icon-inner">
+                            <i class="fas fa-briefcase text-3xl gradient-text"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">B2B Software</h4>
+                    
+                    <div class="metric-highlight">
+                        <div class="text-sm text-gray-400 mb-1">Current Performance</div>
+                        <div class="text-red-400 font-semibold">1K followers • 25 likes avg</div>
+                    </div>
+                    
+                    <div class="text-left mb-4">
+                        <div class="text-green-400 font-semibold mb-2">My Strategy:</div>
+                        <div class="text-gray-300 text-sm leading-relaxed">
+                            Problem/solution storytelling + case studies + founder journey content
+                        </div>
+                    </div>
+                    
+                    <div class="metric-highlight">
+                        <div class="text-sm text-gray-400 mb-1">90-Day Projection</div>
+                        <div class="text-green-400 font-semibold">15K followers • 1K+ engagement</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA NEW-->
+    <section id="contact-section" class="py-20 section-bg-option-3">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="hero-font font-bold text-4xl lg:text-5xl mb-6">
+                    Transform Your Social Media <span class="gradient-text">Today</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    Choose your preferred way to get started. Both options are designed to deliver maximum value and accelerate your success.
+                </p>
+            </div>
+
+            <div class="cta-container">
+                <a href="https://calendly.com/oliveraull-business/30min" target="_blank" class="main-content block hover:opacity-90 transition-opacity cursor-pointer">
+    <h3 class="text-3xl font-bold mb-4">
+        Book Your Strategy Session
+    </h3>
+    <p class="text-lg mb-6 opacity-90">
+        In 30 minutes, I'll audit your current social media and show you exactly what to change to start generating leads immediately.
+    </p>
+    <div class="font-bold text-xl gradient-text">
+        Get Started Now →
+    </div>
+</a>
+                <div class="sidebar" onclick="showExitPopup()" style="cursor:pointer; z-index: 10; position: relative;">
+                    <div class="text-3xl mb-3">📖</div>
+                    <div class="font-semibold text-lg mb-2">Or Get the Blueprint</div>
+                    <div class="text-sm text-gray-400 mb-4">50+ strategies in one guide</div>
+                    <div class="text-green-400 font-semibold cursor-pointer">Download Free</div>
+                </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <p class="text-gray-400 text-lg mb-4">
+                    Have questions or need a custom solution?
+                </p>
+                <p class="text-gray-300 font-medium">
+                    Email me directly: <span style="position: relative; z-index: 15;"><a href="mailto:oliveraull@gmail.com" class="text-green-400 hover:text-green-300 transition-colors underline" style="pointer-events: auto;">oliveraull@gmail.com</a></span>
+                </p>
+                <div class="flex justify-center items-center space-x-8 text-sm text-gray-500 mt-6">
+                    <span><i class="fas fa-shield-alt mr-1"></i> No Spam Policy</span>
+                    <span><i class="fas fa-clock mr-1"></i> Quick Response</span>
+                    <span><i class="fas fa-star mr-1"></i> Proven Results</span>
+                </div>
+            </div>
+        </div>
+    </section>
+                
+
+    <!-- Exit Popup -->
+    <div id="exit-popup" class="exit-popup">
+        <div class="exit-popup-content">
+            <button class="exit-close" onclick="hideExitPopup()">
+                <i class="fas fa-times"></i>
+            </button>
+            <i class="fas fa-rocket text-5xl text-green-400 mb-4"></i>
+            <h3 class="text-3xl font-bold mb-4">
+                Wait! Get My Free <span class="gradient-text">Social Media Blueprint</span>
+            </h3>
+            <p class="text-gray-300 mb-6">
+                Don't leave empty-handed. Get instant access to 50+ proven strategies that will transform your social media game.
+            </p>
+            <div class="grid grid-cols-3 gap-4 mb-6">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-green-400">50+</div>
+                    <div class="text-sm text-gray-400">Strategies</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-green-400">25+</div>
+                    <div class="text-sm text-gray-400">Templates</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-green-400">100%</div>
+                    <div class="text-sm text-gray-400">Free</div>
+                </div>
+            </div>
+            <form class="space-y-4" onsubmit="handleExitPopupSubmit(event)">
+                <input type="email" placeholder="Enter your email for instant access" required class="form-input">
+                <button type="submit" class="cta-button w-full">
+                    <i class="fas fa-download mr-2"></i>
+                    Get My Free Blueprint Now
+                </button>
+            </form>
+            <p class="text-xs text-gray-500 text-center mt-4">
+                <i class="fas fa-lock mr-1"></i>
+                Your email is safe with us. No spam, ever. Unsubscribe anytime.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showExitPopup() {
+            document.getElementById('exit-popup').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideExitPopup() {
+            document.getElementById('exit-popup').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleExitPopupSubmit(event) {
+            event.preventDefault();
+            const popupContent = document.getElementById('exit-popup').querySelector('.exit-popup-content');
+            const messageBox = document.createElement('div');
+            messageBox.innerHTML = '<p class="text-green-400 text-xl font-bold mb-4">Thank you!</p><p class="text-gray-300">This is a demo form. In a real implementation, this would trigger your email marketing system.</p>';
+            messageBox.className = 'absolute inset-0 bg-gray-900 bg-opacity-95 flex flex-col items-center justify-center rounded-2xl p-6 z-20';
+            popupContent.appendChild(messageBox);
+            setTimeout(() => {
+                popupContent.removeChild(messageBox);
+                hideExitPopup();
+            }, 3000);
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let hasShownExitPopup = false;
+            document.addEventListener('mouseleave', function(e) {
+                if (e.clientY <= 0 && !hasShownExitPopup) {
+                    showExitPopup();
+                    hasShownExitPopup = true;
+                }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    hideExitPopup();
+                }
+            });
+
+            document.getElementById('exit-popup').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideExitPopup();
+                }
+            });
+
+    
+        });
+    </script>
+</body>
+</html>
