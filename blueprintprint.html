@@ -29,25 +29,23 @@
         }
 
         .watermark-overlay {
-            /* Watermark removed */
             display: none;
         }
 
         /* Canvas  */
         .page{
-            max-width: 1100px; /* Wide but printable */
+            max-width: 1100px;
             margin: 32px auto;
             padding: 24px;
             background: var(--card);
             border-radius: 20px;
             box-shadow: 0 12px 40px rgba(16,24,40,.08);
             border: 1px solid rgba(2,6,23,.06);
-            position: relative; /* Context for watermark */
+            position: relative;
             overflow: hidden;
             z-index: 1; 
         }
         .watermark {
-            /* Watermark removed */
             display: none;
         }
 
@@ -172,15 +170,14 @@
           content: '';
           position: absolute;
           left: 50%;
-          bottom: -16px; /* adjust to sit below the circle */
+          bottom: -16px;
           transform: translateX(-50%);
           width: 0;
           height: 0;
           border-left: 8px solid transparent;
           border-right: 8px solid transparent;
-          border-top: 12px solid var(--accent); /* arrow color matches line */
+          border-top: 12px solid var(--accent);
         }
-
 
         .launch-step-marker {
             grid-column: 1 / 2;
@@ -190,7 +187,7 @@
             z-index: 1;
         }
 
-            .launch-sequence::after {
+        .launch-sequence::after {
             content: '';
             position: absolute;
             left: 18px;
@@ -240,14 +237,271 @@
 
         .hr{height:1px; background:linear-gradient(90deg,transparent, rgba(2,6,23,.12), transparent); margin:12px 0}
 
-        /* Print (A4 portrait) */
-        @page { size: A4; margin: 12mm; }
+        /* FIXED PRINT STYLES */
+        @page { 
+            size: A4 portrait; 
+            margin: 8mm 6mm 8mm 6mm; 
+        }
+        
         @media print{
-            body{background:white}
-            .page{box-shadow:none; border:none; margin:0; max-width: none; border-radius:0}
-            .badge,.cta .btn{filter: grayscale(0)}
+            body{
+                background:white !important;
+                font-size: 11px !important;
+                line-height: 1.3 !important;
+            }
             
-            /* UPDATED: Watermarks are now completely removed for print */
+            .page{
+                box-shadow:none !important; 
+                border:none !important; 
+                margin:0 !important; 
+                max-width: none !important; 
+                border-radius:0 !important;
+                padding: 8px !important;
+                background: white !important;
+            }
+            
+            /* Header adjustments */
+            .hdr {
+                padding: 8px 0 !important;
+                margin-bottom: 8px !important;
+                grid-template-columns: 1fr !important;
+                gap: 6px !important;
+            }
+            .title { 
+                font-size: 22px !important; 
+                margin: 0 !important;
+            }
+            .subtitle { 
+                font-size: 13px !important; 
+                margin: 0 !important;
+            }
+            .badge { 
+                justify-self: start !important;
+                font-size: 11px !important;
+                padding: 6px 10px !important;
+            }
+            
+            /* Section spacing */
+            section {
+                padding: 6px 0 !important;
+                margin: 6px 0 !important;
+                page-break-inside: avoid;
+            }
+            
+            .sec-title {
+                font-size: 16px !important;
+                margin: 4px 0 8px 0 !important;
+            }
+            
+            .kicker {
+                font-size: 10px !important;
+                margin-bottom: 2px !important;
+            }
+            
+            /* Grid layouts for print */
+            .grid {
+                gap: 8px !important;
+            }
+            
+            .two {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            
+            .three {
+                grid-template-columns: 1fr 1fr 1fr !important;
+            }
+            
+            .four {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            
+            .platforms {
+                grid-template-columns: 1fr 1fr 1fr !important;
+            }
+            
+            .kpis {
+                grid-template-columns: 1fr 1fr 1fr !important;
+            }
+            
+            .mistakes {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            
+            .flow {
+                grid-template-columns: 1fr 1fr 1fr !important;
+            }
+            
+            /* Card adjustments */
+            .card {
+                padding: 8px !important;
+                border-radius: 6px !important;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                background: white !important;
+                page-break-inside: avoid;
+            }
+            
+            .card h3 {
+                font-size: 13px !important;
+                margin: 0 0 4px 0 !important;
+            }
+            
+            .card p, .card li {
+                font-size: 11px !important;
+                margin: 2px 0 !important;
+                line-height: 1.2 !important;
+            }
+            
+            /* Stats adjustments */
+            .stats {
+                grid-template-columns: 1fr 1fr 1fr !important;
+                gap: 6px !important;
+            }
+            
+            .stat {
+                padding: 6px !important;
+                border-radius: 4px !important;
+            }
+            
+            .stat .num {
+                font-size: 16px !important;
+            }
+            
+            .stat .lbl {
+                font-size: 9px !important;
+            }
+            
+            /* Pie chart adjustments */
+            .pie-wrap {
+                grid-template-columns: 120px 1fr !important;
+                gap: 8px !important;
+            }
+            
+            .pie {
+                width: 100px !important;
+                height: 100px !important;
+            }
+            
+            .chip {
+                font-size: 11px !important;
+            }
+            
+            /* Launch sequence adjustments */
+            .launch-sequence {
+                gap: 12px !important;
+                grid-template-columns: 20px 1fr !important;
+            }
+            
+            .launch-sequence::before {
+                left: 19px !important;
+            }
+            
+            .step-num {
+                width: 24px !important;
+                height: 24px !important;
+                font-size: 12px !important;
+            }
+            
+            .launch-step {
+                padding: 8px !important;
+                border-radius: 4px !important;
+            }
+            
+            .launch-step h4 {
+                font-size: 12px !important;
+                margin: 0 0 4px 0 !important;
+            }
+            
+            .launch-step li {
+                font-size: 10px !important;
+                margin-bottom: 2px !important;
+            }
+            
+            /* Platform and other small elements */
+            .platform, .kpi, .mis {
+                padding: 6px !important;
+                border-radius: 4px !important;
+            }
+            
+            .platform h4, .kpi strong {
+                font-size: 11px !important;
+                margin: 0 0 2px 0 !important;
+            }
+            
+            .platform ul, .platform li {
+                font-size: 9px !important;
+                margin: 1px 0 !important;
+            }
+            
+            .tag {
+                font-size: 8px !important;
+                padding: 1px 4px !important;
+            }
+            
+            .kpi small {
+                font-size: 9px !important;
+            }
+            
+            .mis {
+                font-size: 9px !important;
+                gap: 4px !important;
+            }
+            
+            .mis svg {
+                width: 12px !important;
+                height: 12px !important;
+            }
+            
+            /* CTA section */
+            .cta {
+                grid-template-columns: 1fr !important;
+                padding: 8px !important;
+                gap: 6px !important;
+                border-radius: 6px !important;
+                text-align: center !important;
+            }
+            
+            .cta h3 {
+                font-size: 13px !important;
+                margin: 0 0 4px 0 !important;
+            }
+            
+            .cta p {
+                font-size: 10px !important;
+                margin: 0 0 6px 0 !important;
+            }
+            
+            .cta .btn {
+                justify-self: center !important;
+                font-size: 10px !important;
+                padding: 6px 12px !important;
+                border-radius: 4px !important;
+            }
+            
+            /* Footer */
+            footer {
+                font-size: 9px !important;
+                margin-top: 8px !important;
+            }
+            
+            /* Hide decorative elements */
+            .hr {
+                margin: 4px 0 !important;
+                height: 1px !important;
+            }
+            
+            /* Force page breaks where needed */
+            .page-break {
+                page-break-before: always;
+            }
+            
+            /* Prevent orphans */
+            .ib svg {
+                width: 16px !important;
+                height: 16px !important;
+            }
+            
+            /* Remove watermarks completely */
             .watermark-overlay, .watermark {
                 display: none !important;
                 opacity: 0 !important;
