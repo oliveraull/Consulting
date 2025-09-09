@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-
-        html {
-            scroll-behavior: smooth; /* apply to html */
-        }
-        
         /* General body styling - Now pure black */
         body {
             font-family: 'Inter', sans-serif;
@@ -2539,7 +2534,7 @@
                 <div class="sidebar" onclick="showExitPopup()" style="cursor:pointer; z-index: 10; position: relative;">
                     <div class="text-3xl mb-3">📖</div>
                     <div class="font-semibold text-lg mb-2">Or Get the Blueprint</div>
-                    <div class="text-sm text-gray-400 mb-4">50+ strategies in one guide</div>
+                    <div class="text-sm text-gray-400 mb-4">30 Day Quick-Start Guide</div>
                     <div class="text-green-400 font-semibold cursor-pointer">Download Free</div>
                 </div>
                 </div>
@@ -2562,46 +2557,46 @@
     </section>
                 
 
-    <!-- Exit Popup -->
-    <div id="exit-popup" class="exit-popup">
-        <div class="exit-popup-content">
-            <button class="exit-close" onclick="hideExitPopup()">
-                <i class="fas fa-times"></i>
-            </button>
-            <i class="fas fa-rocket text-5xl text-green-400 mb-4"></i>
-            <h3 class="text-3xl font-bold mb-4">
-                Wait! Get My Free <span class="gradient-text">Social Media Blueprint</span>
-            </h3>
-            <p class="text-gray-300 mb-6">
-                Don't leave empty-handed. Get instant access to 50+ proven strategies that will transform your social media game.
-            </p>
-            <div class="grid grid-cols-3 gap-4 mb-6">
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-green-400">50+</div>
-                    <div class="text-sm text-gray-400">Strategies</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-green-400">25+</div>
-                    <div class="text-sm text-gray-400">Templates</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-green-400">100%</div>
-                    <div class="text-sm text-gray-400">Free</div>
-                </div>
-            </div>
-            <form class="space-y-4" onsubmit="handleExitPopupSubmit(event)">
-                <input type="email" placeholder="Enter your email for instant access" required class="form-input">
-                <button type="submit" class="cta-button w-full">
-                    <i class="fas fa-download mr-2"></i>
-                    Get My Free Blueprint Now
-                </button>
-            </form>
-            <p class="text-xs text-gray-500 text-center mt-4">
-                <i class="fas fa-lock mr-1"></i>
-                Your email is safe with us. No spam, ever. Unsubscribe anytime.
-            </p>
-        </div>
-    </div>
+    <!-- Exit Popup -->     
+<div id="exit-popup" class="exit-popup">         
+    <div class="exit-popup-content">             
+        <button class="exit-close" onclick="hideExitPopup()">                 
+            <i class="fas fa-times"></i>             
+        </button>             
+        <i class="fas fa-play text-5xl text-green-400 mb-4"></i>             
+        <h3 class="text-3xl font-bold mb-4">                 
+            Wait! Get My Free <span class="gradient-text">Short-Form Video Success Blueprint</span>             
+        </h3>             
+        <p class="text-gray-300 mb-6">                 
+            Don't leave without the complete strategic guide that business owners are using to dominate TikTok, Reels & Shorts.             
+        </p>             
+        <div class="grid grid-cols-3 gap-4 mb-6">                 
+            <div class="text-center">                     
+                <div class="text-2xl font-bold text-green-400">6</div>                     
+                <div class="text-sm text-gray-400">Phases</div>                 
+            </div>                 
+            <div class="text-center">                     
+                <div class="text-2xl font-bold text-green-400">30-Day</div>                     
+                <div class="text-sm text-gray-400">Quick-Start Guide</div>                 
+            </div>                 
+            <div class="text-center">                     
+                <div class="text-2xl font-bold text-green-400">100%</div>                     
+                <div class="text-sm text-gray-400">Free</div>                 
+            </div>             
+        </div>             
+        <form class="space-y-4" onsubmit="handleExitPopupSubmit(event)">                 
+            <input type="email" placeholder="Enter your email for instant access" required class="form-input">                 
+            <button type="submit" class="cta-button w-full">                     
+                <i class="fas fa-download mr-2"></i>                     
+                Get My Free Video Blueprint Now                 
+            </button>             
+        </form>             
+        <p class="text-xs text-gray-500 text-center mt-4">                 
+            <i class="fas fa-lock mr-1"></i>                 
+            Your email is safe with us. No spam. No email list!             
+        </p>         
+    </div>     
+</div>
 
     <script>
         function showExitPopup() {
