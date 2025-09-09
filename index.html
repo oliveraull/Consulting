@@ -32,6 +32,18 @@
             background-clip: text;
         }
 
+           .red-gradient-text {
+    background: radial-gradient(ellipse at center, 
+        #ef4444 0%,     /* Bright center */
+        #dc2626 40%, 
+        #b91c1c 80%, 
+        #7f1d1d 100%    /* Dark edges */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
         /* Floating elements for visual effect */
         .floating-element {
             animation: float 6s ease-in-out infinite;
@@ -1329,8 +1341,30 @@
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+    opacity: 0; /* Start hidden */
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translateY(100px); /* Start below viewport */
+}
+
+.sticky-cta.show {
     opacity: 1;
-    transition: opacity 0.3s ease;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Mobile adjustments for sticky CTA */
+@media (max-width: 768px) {
+    .sticky-cta {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .sticky-cta .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
 }
 
 /* New, single-definition styles */
@@ -1573,7 +1607,7 @@
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <div class="text-left">
                 <p class="text-green-400 font-semibold text-sm uppercase tracking-wider mb-4"> FROM CONTENT CREATOR TO BUSINESS STRATEGIST </p>
-                <h1 class="hero-font text-6xl lg:text-7xl font-bold leading-tight mb-6"> <span class="gradient-text">Stop</span> Posting Into The Void. <span class="gradient-text">Start </span>Generating Leads </h1>
+                <h1 class="hero-font text-6xl lg:text-7xl font-bold leading-tight mb-6"> <span class="red-gradient-text">Stop</span> Posting Into The Void. <span class="gradient-text">Start </span>Generating Leads </h1>
                 <p class="text-xl text-gray-300 mb-8 leading-relaxed"> Your competitors are stealing customers while you're stuck wondering what to post. Let's fix that in 30 days. My Followers: </p>
                 <div class="hero-stats mb-8">
                     <div class="flex items-center space-x-2">
@@ -2144,7 +2178,7 @@
 
 
     <!-- My Unfair Advantage Section -->
-    <section class="py-20 relative">
+    <section id="story" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-6">
             <!-- Section Header -->
             <div class="text-center mb-16">
@@ -2194,7 +2228,7 @@
                         
                         <div class="advantage-card">
                             <div class="advantage-icon">
-                                <i class="fas fa-lightning-bolt text-2xl text-yellow-400"></i>
+                                <i class="fas fa-bolt text-2xl text-yellow-400"></i>
                             </div>
                             <h3 class="text-2xl font-bold text-yellow-400 mb-4">Real-Time Trend Detection</h3>
                             <p class="text-gray-300 text-lg leading-relaxed">
@@ -2612,6 +2646,26 @@
 
     
         });
+
+        // Sticky CTA scroll behavior
+        window.addEventListener('scroll', function() {
+            const stickyCTA = document.querySelector('.sticky-cta');
+            const heroSection = document.querySelector('section');
+            const contactSection = document.getElementById('contact-section');
+            
+            const heroHeight = heroSection.offsetHeight;
+            const contactTop = contactSection.offsetTop;
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            
+            // Show sticky CTA after scrolling past hero, hide when reaching contact
+            if (scrollPosition > heroHeight - 200 && scrollPosition + windowHeight < contactTop + 100) {
+                stickyCTA.classList.add('show');
+            } else {
+                stickyCTA.classList.remove('show');
+            }
+        });
+        
     </script>
 </body>
 </html>
