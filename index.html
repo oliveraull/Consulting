@@ -798,13 +798,50 @@
             flex-shrink: 0;
         }
 
-        .metric-highlight {
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 12px;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
+        .transformation {
+    padding: 1.5rem 0;
+    border-radius: 12px;
+    margin: 1rem 0;
+}
+
+.before-state {
+    color: #ef4444;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.arrow {
+    color: #00ff88;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.after-state {
+    color: #00ff88;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.timeline {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    background: linear-gradient(135deg, #00ff88, #00d4ff);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0 0 8px 8px;
+}
 
         .fade-in.visible {
             opacity: 1;
@@ -2419,13 +2456,14 @@
                     Real Strategy Examples
                 </h3>
                 <p class="text-gray-400 max-w-2xl mx-auto">
-                    See exactly how I’d transform struggling accounts
+                    See exactly how I'd transform struggling accounts across different industries
                 </p>
             </div>
 
-            <!-- Mock Strategy Examples -->
+            <!-- Streamlined Strategy Examples -->
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="strategy-card fade-in">
+                    <div class="timeline">90 Days</div>
                     <div class="strategy-icon">
                         <div class="strategy-icon-inner">
                             <i class="fas fa-crown text-3xl gradient-text"></i>
@@ -2433,25 +2471,25 @@
                     </div>
                     <h4 class="text-xl font-bold mb-3 text-white">The Authority Builder</h4>
                     
-                    <div class="metric-highlight">
-                        <div class="text-sm text-gray-400 mb-1">Current Performance</div>
-                        <div class="text-red-400 font-semibold">Small local professional, posting sporadically. 1–2 likes per post.</div>
-                    </div>
-                    
-                    <div class="text-left mb-4">
-                        <div class="text-green-400 font-semibold mb-2">My Strategy:</div>
-                        <div class="text-gray-300 text-sm leading-relaxed">
-                            Turn them into the go-to name in their area through educational micro-content, personality-driven videos, and a consistent posting system.
+                    <div class="transformation">
+                        <div class="before-state">
+                            <i class="fas fa-chart-line"></i>
+                            1-2 likes, sporadic posting
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="after-state">
+                            <i class="fas fa-trophy"></i>
+                            Recognized local authority
                         </div>
                     </div>
                     
-                    <div class="metric-highlight">
-                        <div class="text-sm text-gray-400 mb-1">90-Day Projection</div>
-                        <div class="text-green-400 font-semibold">Recognized as a trusted authority, local inquiries flowing in directly from social media.</div>
+                    <div class="text-gray-300 text-sm mt-4">
+                        Educational content + consistent system = direct inquiries
                     </div>
                 </div>
 
                 <div class="strategy-card fade-in">
+                    <div class="timeline">90 Days</div>
                     <div class="strategy-icon">
                         <div class="strategy-icon-inner">
                             <i class="fas fa-handshake text-3xl gradient-text"></i>
@@ -2459,25 +2497,25 @@
                     </div>
                     <h4 class="text-xl font-bold mb-3 text-white">The Trust Builder</h4>
                     
-                    <div class="metric-highlight">
-                        <div class="text-sm text-gray-400 mb-1">Current Performance</div>
-                        <div class="text-red-400 font-semibold">Service provider relying only on word-of-mouth. Almost no social presence.</div>
-                    </div>
-                    
-                    <div class="text-left mb-4">
-                        <div class="text-green-400 font-semibold mb-2">My Strategy:</div>
-                        <div class="text-gray-300 text-sm leading-relaxed">
-                               Digitize trust with client success stories, behind-the-scenes insights, and reputation-focused content that makes choosing them the obvious decision.
+                    <div class="transformation">
+                        <div class="before-state">
+                            <i class="fas fa-ghost"></i>
+                            Word-of-mouth only
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="after-state">
+                            <i class="fas fa-star"></i>
+                            Thriving digital reputation
                         </div>
                     </div>
                     
-                    <div class="metric-highlight">
-                        <div class="text-sm text-gray-400 mb-1">90-Day Projection</div>
-                        <div class="text-green-400 font-semibold">A thriving online presence that mirrors (and scales) their real-world reputation.</div>
+                    <div class="text-gray-300 text-sm mt-4">
+                        Success stories + behind-the-scenes = obvious choice
                     </div>
                 </div>
 
                 <div class="strategy-card fade-in">
+                    <div class="timeline">90 Days</div>
                     <div class="strategy-icon">
                         <div class="strategy-icon-inner">
                             <i class="fas fa-cogs text-3xl gradient-text"></i>
@@ -2485,25 +2523,23 @@
                     </div>
                     <h4 class="text-xl font-bold mb-3 text-white">The Sales Engine</h4>
                     
-                    <div class="metric-highlight">
-                        <div class="text-sm text-gray-400 mb-1">Current Performance</div>
-                        <div class="text-red-400 font-semibold">Small brand with decent engagement but little conversion into sales.</div>
-                    </div>
-                    
-                    <div class="text-left mb-4">
-                        <div class="text-green-400 font-semibold mb-2">My Strategy:</div>
-                        <div class="text-gray-300 text-sm leading-relaxed">
-                            Shift from vanity metrics to ROI-driven funnels. Create product storytelling content, social proof campaigns, and calls-to-action that drive actual purchases.
+                    <div class="transformation">
+                        <div class="before-state">
+                            <i class="fas fa-heart"></i>
+                            Likes but no sales
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="after-state">
+                            <i class="fas fa-dollar-sign"></i>
+                            Revenue-driving content
                         </div>
                     </div>
                     
-                    <div class="metric-highlight">
-                        <div class="text-sm text-gray-400 mb-1">90-Day Projection</div>
-                        <div class="text-green-400 font-semibold">Sales growth tied directly to content, with a repeatable system for scaling revenue.</div>
+                    <div class="text-gray-300 text-sm mt-4">
+                        Strategic funnels + social proof = actual purchases
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
