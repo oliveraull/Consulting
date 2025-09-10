@@ -6,6 +6,7 @@
     <title>Oliver Aull - Social Media Lead Generation</title>
     <meta name="description" content="Turn your social media into a lead generation machine with strategies from a content creator with 2M+ followers.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -2707,9 +2708,11 @@
                 <div class="text-2xl font-bold text-green-400">100%</div>                     
                 <div class="text-sm text-gray-400">Free</div>                 
             </div>             
-        </div>             
-        <form class="space-y-4" onsubmit="handleExitPopupSubmit(event)">                 
-            <input type="email" placeholder="Enter your email for instant access" required class="form-input">                 
+        </div>  
+           
+       <form id="exitPopupForm" class="space-y-4" onsubmit="handleExitPopupSubmit(event)">
+    <div id="exitFormStatus" style="margin-bottom: 16px; font-weight: bold; min-height: 20px;"></div>
+    <input type="email" id="exitEmail" placeholder="Enter your email for instant access" required class="form-input">                
             <button type="submit" class="cta-button w-full">                     
                 <i class="fas fa-download mr-2"></i>                     
                 Get My Free Video Blueprint Now                 
@@ -2723,6 +2726,11 @@
 </div>
 
     <script>
+       // Initialize EmailJS
+        (function(){
+            emailjs.init("fEg4G5mk_h5SMv-A7");
+        })();
+
         function showExitPopup() {
             document.getElementById('exit-popup').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -2734,17 +2742,44 @@
         }
 
         function handleExitPopupSubmit(event) {
-            event.preventDefault();
-            const popupContent = document.getElementById('exit-popup').querySelector('.exit-popup-content');
-            const messageBox = document.createElement('div');
-            messageBox.innerHTML = '<p class="text-green-400 text-xl font-bold mb-4">Thank you!</p><p class="text-gray-300">This is a demo form. In a real implementation, this would trigger your email marketing system.</p>';
-            messageBox.className = 'absolute inset-0 bg-gray-900 bg-opacity-95 flex flex-col items-center justify-center rounded-2xl p-6 z-20';
-            popupContent.appendChild(messageBox);
+    event.preventDefault();
+    
+    const formStatus = document.getElementById('exitFormStatus');
+    const emailInput = document.getElementById('exitEmail');
+    
+    // Show loading state
+    formStatus.innerHTML = 'Sending...';
+    formStatus.style.color = '#60a5fa'; // blue
+    
+   //email data
+    const templateParams = {
+    from_name: 'Exit Popup Lead',
+    from_email: emailInput.value,
+    phone: 'Not provided',
+    city: 'Not specified',
+    state: 'Not specified',
+    message: 'User requested the Short-Form Video Success Blueprint via exit popup'
+};
+    
+    // Send via EmailJS using your existing service and template
+    emailjs.send('service_u6fgu76', 'template_qx653l3', templateParams)
+        .then(function(response) {
+            console.log('EXIT POPUP SUCCESS!', response);
+            formStatus.innerHTML = 'Success! Check your email for the blueprint.';
+            formStatus.style.color = '#4ade80'; // green
+            emailInput.value = ''; // Clear the input
+            
+            // Hide popup after success
             setTimeout(() => {
-                popupContent.removeChild(messageBox);
                 hideExitPopup();
-            }, 3000);
-        }
+            }, 2000);
+        })
+        .catch(function(error) {
+            console.log('EXIT POPUP FAILED...', error);
+            formStatus.innerHTML = 'Failed to send. Please try again.';
+            formStatus.style.color = '#f87171'; // red
+        });
+}
 
 
         document.addEventListener('DOMContentLoaded', function() {
