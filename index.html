@@ -12,7 +12,12 @@
     <style>
 
         html {
+            html {
             scroll-behavior: smooth;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         }
         /* General body styling - Now pure black */
         body {
@@ -802,7 +807,7 @@
             flex-shrink: 0;
         }
 
-        .transformation {
+      .transformation {
     padding: 1.5rem 0;
     border-radius: 12px;
     margin: 1rem 0;
@@ -817,6 +822,10 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .arrow {
@@ -833,6 +842,60 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Mobile-specific adjustments for transformation text */
+@media (max-width: 768px) {
+    .transformation {
+        padding: 1rem 0.5rem;
+        margin: 0.5rem 0;
+    }
+    
+    .before-state,
+    .after-state {
+        font-size: 0.8rem;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0 0.75rem;
+        line-height: 1.4;
+        white-space: normal;
+        word-break: break-word;
+    }
+    
+    .before-state i,
+    .after-state i {
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+    
+    .arrow {
+        font-size: 1.2rem;
+        margin: 0.25rem 0;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .transformation {
+        padding: 0.75rem 0.25rem;
+    }
+    
+    .before-state,
+    .after-state {
+        font-size: 0.75rem;
+        padding: 0 0.5rem;
+        line-height: 1.3;
+    }
+    
+    .before-state i,
+    .after-state i {
+        font-size: 0.9rem;
+    }
 }
 
 .timeline {
