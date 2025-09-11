@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Short‑Form Video Success Guideline — One‑Page Poster</title>
+    <style>
+        /* ------------------  THEME  ------------------ */
+        :root{
+            --ink:#0b132b;           /* Deep navy */
+            --ink-2:#1c2541;         /* Muted navy */
+            --accent:#2ec4b6;        /* Aqua/teal */
+            --accent-2:#00b4d8;      /* Cyan */
+            --bg:#f6f8fb;            /* Soft paper */
+            --card:#ffffff;
+            --muted:#6b7280;         /* Gray 500 */
+            --success:#22c55e;
+            --warning:#f59e0b;
+            --danger:#ef4444;
+        }
+        *{box-sizing:border-box}
+        html,body{margin:0}
+        body{
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            color:var(--ink);
+            background:linear-gradient(180deg,var(--bg),#ecf2f9);
+            -webkit-font-smoothing:antialiased;
+            line-height:1.45;
+        }
+
+        .watermark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999; /* Ensure it is on top of all other content */
+            pointer-events: none; /* Allows clicks and text selection to pass through */
+            
+            /* WATERMARK STYLES */
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='200px' height='200px'><text x='100' y='100' transform='rotate(-45, 100, 100)' fill='rgba(0,0,0,0.05)' font-family='sans-serif' font-size='20' text-anchor='middle'>OLIVER AULL</text></svg>");
+            background-repeat: repeat;
+        }
+
+        /* Canvas  */
+        .page{
+            max-width: 1100px; /* Wide but printable */
+            margin: 32px auto;
+            padding: 24px;
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(16,24,40,.08);
+            border: 1px solid rgba(2,6,23,.06);
+            position: relative; /* Context for watermark */
+            overflow: hidden;
+            z-index: 1; 
+        }
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: clamp(30px, 12vw, 120px);
+            font-weight: 800;
+            color: rgba(0, 0, 0, 0.04);
+            transform: translate(-50%, -50%) rotate(-35deg);
+            z-index: 0;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Header */
+        .hdr{
+            display:grid; gap:12px;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            padding: 16px 16px 8px 16px;
+            border-bottom:1px dashed rgba(2,6,23,.12);
+            position: relative;
+            z-index: 1;
+        }
+        .title{font-size: clamp(26px,3.2vw,40px); font-weight:800; letter-spacing:-0.02em}
+        .subtitle{font-size: clamp(14px,1.5vw,18px); color:var(--muted)}
+        .badge{
+            justify-self:end; align-self:start;
+            background: linear-gradient(135deg,var(--accent), var(--accent-2));
+            color:white; padding:10px 14px; border-radius:999px; font-weight:700; box-shadow:0 6px 18px rgba(46,196,182,.35);
+            display:flex; align-items:center; gap:8px; white-space:nowrap
+        }
+        .badge svg{width:18px;height:18px; opacity:.9}
+
+        /* Section blocks */
+        section{padding:18px 16px; position: relative; z-index: 1;}
+        .grid{display:grid; gap:16px}
+        .two{grid-template-columns: repeat(2,1fr)}
+        .three{grid-template-columns: repeat(3,1fr)}
+        .four{grid-template-columns: repeat(4,1fr)}
+
+        .card{
+            background:linear-gradient(180deg,#ffffff, #fafcff);
+            border:1px solid rgba(2,6,23,.08);
+            box-shadow:0 6px 18px rgba(2,6,23,.06);
+            border-radius:16px; padding:16px; position:relative; overflow:hidden
+        }
+        .card h3{margin:0 0 8px 0; font-size: clamp(16px,1.6vw,20px)}
+        .card p{margin:6px 0; color:#374151}
+        .card li{margin-bottom: 6px}
+
+        .kicker{font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); font-weight:700}
+        .sec-title{font-size: clamp(18px,2vw,22px); font-weight:800; letter-spacing:-.01em; margin:2px 0 10px 0}
+
+        /* Stat strip */
+        .stats{display:grid; grid-template-columns: repeat(3,1fr); gap:12px}
+        .stat{padding:14px; border-radius:12px; background: radial-gradient(80% 120% at 10% 10%, rgba(46,196,182,.12), transparent), #fff; border:1px solid rgba(2,6,23,.06)}
+        .stat .num{font-size: clamp(22px,2.8vw,30px); font-weight:900; letter-spacing:-.02em}
+        .stat .lbl{font-size: 12px; color:var(--muted)}
+
+        /* Icon bullets */
+        .ib{display:grid; grid-template-columns: 24px 1fr; gap:10px; align-items:start}
+        .ib svg{width:20px; height:20px; margin-top:2px; color:var(--accent)}
+
+        /* Pillars Pie */
+        .pie-wrap{display:grid; grid-template-columns: 220px 1fr; gap:16px; align-items:center}
+        .pie{width:200px; height:200px; border-radius:50%; position:relative; box-shadow:inset 0 0 0 10px #ffffff, 0 10px 24px rgba(2,6,23,.08);}
+        .pie::after{content:""; position:absolute; inset:18px; border-radius:50%; background:radial-gradient(circle at 35% 35%, #fff, #f4f7fb)}
+        .legend{display:grid; gap:8px}
+        .chip{display:flex; align-items:center; gap:8px; font-size:14px}
+        .dot{width:10px; height:10px; border-radius:50%}
+
+        /* Hook → Value → CTA flow */
+        .flow{display:grid; grid-template-columns: repeat(3,1fr); gap:12px; align-items:stretch}
+        .flow .step{border-left:4px solid var(--accent); padding:12px; border-radius:12px; background:#fff}
+        .step h4{margin:0 0 6px 0; font-size:15px}
+        .step .tip{font-size:12px; color:var(--muted)}
+
+        /* Platforms columns */
+        .platforms{display:grid; grid-template-columns: repeat(3,1fr); gap:12px}
+        .platform{background:#fff; border:1px solid rgba(2,6,23,.06); border-radius:14px; padding:12px}
+        .platform h4{margin:0 0 6px 0}
+        .tag{display:inline-block; font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid rgba(2,6,23,.1); margin:2px 6px 0 0}
+
+        /* KPI strip */
+        .kpis{display:grid; grid-template-columns: repeat(5,1fr); gap:10px}
+        .kpi{padding:10px; background:linear-gradient(180deg,#fff,#f8fbff); border:1px solid rgba(2,6,23,.06); border-radius:12px}
+        .kpi strong{display:block; font-size:14px}
+        .kpi small{color:var(--muted)}
+
+        /* Mistakes */
+        .mistakes{display:grid; grid-template-columns: repeat(3,1fr); gap:10px}
+        .mis{
+            padding:10px;
+            border-radius:12px;
+            background:#fff;
+            border:1px solid var(--danger);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* New 30-Day Plan - Launch Sequence */
+        .launch-sequence {
+            display: grid;
+            grid-template-columns: 24px 1fr;
+            gap: 24px;
+            padding-left: 12px;
+            position: relative;
+        }
+        .launch-sequence::before {
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 24px;
+            bottom: 24px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-2));
+            opacity: 0.5;
+            z-index: 0;
+            border-radius: 99px;
+        }
+        .launch-step {
+            grid-column: 2 / 3;
+            padding: 16px;
+            background: linear-gradient(180deg, #f7fafc, #fff);
+            border: 1px solid rgba(2, 6, 23, 0.08);
+            box-shadow: 0 4px 12px rgba(2,6,23,.04);
+            border-radius: 12px;
+        }
+
+        .launch-step-marker:last-of-type::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -16px; /* adjust to sit below the circle */
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid var(--accent); /* arrow color matches line */
+        }
+
+        .launch-step-marker {
+            grid-column: 1 / 2;
+            justify-self: center;
+            align-self: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .launch-sequence::after {
+            content: '';
+            position: absolute;
+            left: 18px;
+            bottom: 12px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 12px solid var(--accent);
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .step-num {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #fff;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(46,196,182,.2);
+        }
+        .launch-step h4 {
+            margin: 0 0 12px 0;
+            font-size: 16px;
+            letter-spacing: -0.01em;
+        }
+        .launch-step ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            font-size: 14px;
+            color: #374151;
+        }
+        .launch-step li {
+            margin-bottom: 8px;
+        }
+
+        /* CTA footer */
+        .cta{display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; align-items:center; background:linear-gradient(90deg, rgba(46,196,182,.12), rgba(0,180,216,.08)); border:1px solid rgba(2,6,23,.08); border-radius:18px; padding:16px; position: relative; z-index: 1;}
+        .cta h3{margin:0 0 6px 0}
+        .cta .btn{justify-self:end; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#fff; border:none; padding:12px 16px; border-radius:12px; font-weight:800; cursor:pointer; box-shadow:0 10px 24px rgba(46,196,182,.35)}
+
+        .hr{height:1px; background:linear-gradient(90deg,transparent, rgba(2,6,23,.12), transparent); margin:12px 0}
+
+        /* ENHANCED PRINT STYLES */
+        @page { 
+            size: A4 portrait; 
+            margin: 10mm; 
+        }
+        
+        @media print {
+            /* Remove screen-only elements and fix layout issues */
+            body {
+                background: white !important;
+                color: black !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            /* Hide watermark overlay for printing */
+            .watermark-overlay {
+                display: none !important;
+            }
+            
+            /* Simplify the main container */
+            .page {
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                max-width: none !important;
+                padding: 12px !important;
+                background: white !important;
+                overflow: visible !important;
+            }
+            
+            /* Hide the watermark inside the page */
+            .watermark {
+                display: none !important;
+            }
+            
+            /* Ensure proper breaks */
+            section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                padding: 12px 8px;
+            }
+            
+            /* Fix header layout */
+            .hdr {
+                grid-template-columns: 1fr auto;
+                gap: 8px;
+                padding: 8px;
+                border-bottom: 1px solid #ccc;
+                position: relative !important;
+                z-index: 1 !important;
+            }
+            
+            /* Ensure badge prints properly */
+            .badge {
+                background: #2ec4b6 !important;
+                color: white !important;
+                box-shadow: none !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            /* Fix grid layouts for print */
+            .grid.two, .grid.three, .grid.four {
+                gap: 8px;
+            }
+            
+            .platforms {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            
+            .kpis {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 6px;
+            }
+            
+            .mistakes {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            
+            /* Simplify cards for print */
+            .card {
+                background: white !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                border-radius: 8px !important;
+                padding: 12px !important;
+                break-inside: avoid;
+            }
+            
+            /* Fix pie chart container */
+            .pie-wrap {
+                grid-template-columns: 160px 1fr;
+                gap: 12px;
+            }
+            
+            .pie {
+                width: 150px;
+                height: 150px;
+                box-shadow: inset 0 0 0 8px #ffffff, 0 2px 4px rgba(0,0,0,0.1);
+            }
+            
+            /* Fix launch sequence for print */
+            .launch-sequence {
+                grid-template-columns: 20px 1fr;
+                gap: 16px;
+                padding-left: 8px;
+            }
+            
+            .step-num {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+                background: #2ec4b6 !important;
+                color: white !important;
+                box-shadow: none !important;
+            }
+            
+            /* Fix flow layout */
+            .flow {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            
+            /* Ensure CTA prints properly */
+            .cta {
+                background: #f0f8ff !important;
+                border: 1px solid #ccc !important;
+                grid-template-columns: 1fr auto;
+                gap: 12px;
+            }
+            
+            .cta .btn {
+                background: #2ec4b6 !important;
+                color: white !important;
+                box-shadow: none !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            /* Text adjustments for print */
+            .title {
+                font-size: 28px !important;
+            }
+            
+            .sec-title {
+                font-size: 18px !important;
+            }
+            
+            .card h3 {
+                font-size: 16px !important;
+            }
+            
+            /* Ensure colors print properly */
+            svg {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            /* Footer adjustments */
+            footer {
+                margin-top: 12px !important;
+                font-size: 10px !important;
+                break-inside: avoid;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 980px){
+            .two,.three,.four,.platforms,.kpis,.mistakes,.flow{grid-template-columns:1fr}
+            .pie-wrap{grid-template-columns:1fr}
+            .stats{grid-template-columns:1fr 1fr}
+            .hdr{grid-template-columns:1fr}
+            .badge{justify-self:start}
+            .cta{grid-template-columns:1fr}
+            .launch-sequence {
+                grid-template-columns: 24px 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="page" role="document">
+        <div class="watermark-overlay"></div>
+        
+        <!-- Header -->
+        <header class="hdr">
+            <div>
+                <div class="kicker">Guideline</div>
+                <h1 class="title">The Short‑Form Video Success Guideline</h1>
+                <p class="subtitle">A strategic guide for business owners ready to dominate short‑form content</p>
+            </div>
+            <div class="badge" title="Professional Edition">
+                <!-- Play icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Pro Cheat Sheet
+            </div>
+        </header>
+
+        <!-- Why it matters -->
+        <section>
+            <div class="sec-title">Why Short‑Form Video Matters</div>
+            <div class="grid two">
+                <div class="card">
+                    <div class="grid stats">
+                        <div class="stat"><div class="num">2.5×</div><div class="lbl">Higher engagement vs long‑form</div></div>
+                        <div class="stat"><div class="num">85%</div><div class="lbl">Consumers want more brand video</div></div>
+                        <div class="stat"><div class="num">1200%</div><div class="lbl">More shares than text+images</div></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v14H3z"/><path d="M7 21h10"/><path d="M9 17v4"/><path d="M15 17v4"/></svg>
+                        <p>Platforms like TikTok, Reels, and Shorts command billions of daily views. Brands that master short‑form build awareness faster, educate smarter, and convert more customers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Phase 1 -->
+        <section>
+            <div class="kicker">Phase 1</div>
+            <div class="sec-title">Foundation & Strategy</div>
+            <div class="grid three">
+                <div class="card">
+                    <h3>
+                        <!-- Target icon -->
+                        <svg style="margin-right: 6px; position:relative; top:2px; color:var(--accent)" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        Define Goals
+                    </h3>
+                    <p>Brand Awareness • Lead Gen • Customer Education • Community</p>
+                </div>
+                <div class="card">
+                    <h3>
+                        <!-- Audience icon -->
+                        <svg style="margin-right: 6px; position:relative; top:2px; color:var(--accent)" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        Know Your Audience
+                    </h3>
+                    <p>Personas: demographics, pain points, habits, platforms, peak times.</p>
+                </div>
+                <div class="card">
+                    <h3>
+                        <!-- Search/Magnifying Glass Icon -->
+                        <svg style="margin-right: 6px; position:relative; top:2px; color:var(--accent)" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        Competitive Analysis
+                    </h3>
+                    <p>Engaging formats • Frequency • Hashtags • Comment patterns • Content gaps.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 2 -->
+        <section>
+            <div class="kicker">Phase 2</div>
+            <div class="sec-title">Develop Your Content Pillars</div>
+            <div class="card">
+                <div class="pie-wrap">
+                    <svg class="pie" width="200" height="200" viewBox="0 0 100 100" aria-label="Content Pillars Pie">
+                        <!-- Map the circle circumference to 100 units so dasharray behaves like percentages -->
+                        <!-- Educational: 45% -->
+                        <circle cx="50" cy="50" r="45" fill="none"
+                                stroke="#2ec4b6" stroke-width="10"
+                                stroke-linecap="butt"
+                                pathLength="100"
+                                stroke-dasharray="45 55"
+                                transform="rotate(-90 50 50)"/>
+                      
+                        <!-- Entertaining: 30% -->
+                        <circle cx="50" cy="50" r="45" fill="none"
+                                stroke="#7dd3fc" stroke-width="10"
+                                stroke-linecap="butt"
+                                pathLength="100"
+                                stroke-dasharray="30 70"
+                                transform="rotate(72 50 50)"/>
+                      
+                        <!-- Emotional: 25% -->
+                        <circle cx="50" cy="50" r="45" fill="none"
+                                stroke="#a78bfa" stroke-width="10"
+                                stroke-linecap="butt"
+                                pathLength="100"
+                                stroke-dasharray="25 75"
+                                transform="rotate(180 50 50)"/>
+                      </svg>
+                      
+                    
+                    <div class="legend">
+                        <div class="chip"><span class="dot" style="background:var(--accent)"></span> <strong>Educational</strong> — 45%</div>
+                        <div class="chip"><span class="dot" style="background:#7dd3fc"></span> <strong>Entertaining</strong> — 30%</div>
+                        <div class="chip"><span class="dot" style="background:#a78bfa"></span> <strong>Emotional</strong> — 25%</div>
+                        <div class="ib" style="margin-top:6px">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18"/><path d="M3 12h18"/><path d="M3 17h18"/></svg>
+                            <div>
+                                <p><strong>Educational:</strong> Teach your audience something useful. This builds trust and positions you as an expert. Example: A personal trainer shows proper squat form.</p>
+                                <p><strong>Entertaining:</strong> Use humor, trends, or engaging storytelling to grab attention. Example: A baker shows a "day in the life" of baking 100 cupcakes.</p>
+                                <p><strong>Emotional:</strong> Share your story, customer success stories, or the "why" behind your business. Example: A small business owner shares their product launch journey.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Phase 3 -->
+        <section>
+            <div class="kicker">Phase 3</div>
+            <div class="sec-title">Master the Basics</div>
+            <div class="grid two">
+                <div class="card">
+                    <h3>
+                        <!-- Camera icon -->
+                        <svg style="margin-right: 6px; position:relative; top:2px; color:var(--accent)" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M20.42 16.61a2.1 2.1 0 0 1-2.97 0L9.4 6.77a2.12 2.12 0 0 0-2.97 0L4.5 9.17"></path></svg>
+                        Essential Equipment (You Don't Need Fancy)
+                    </h3>
+                    <ul>
+                        <li><strong>Smartphone:</strong> Your phone is enough!</li>
+                        <li><strong>High‑Quality Audio:</strong> Basic external mic or quiet space</li>
+                        <li><strong>Good Lighting:</strong> Natural light near window or ring light</li>
+                        <li><strong>Tripod/mount:</strong> For stability</li>
+                        <li><strong>Editing app:</strong> CapCut, InShot, Premiere Rush</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>
+                        <!-- Funnel icon -->
+                        <svg style="margin-right: 6px; position:relative; top:2px; color:var(--accent)" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"></path><path d="M12 11a5 5 0 0 0-5 5v3a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3a5 5 0 0 0-5-5z"></path></svg>
+                        Hook → Value → CTA
+                    </h3>
+                    <div class="flow">
+                        <div class="step"><h4>Strong Hook</h4><div class="tip">Question, surprising statement, quick visual to stop the scroll in 3 sec.</div></div>
+                        <div class="step"><h4>Value (Core)</h4><div class="tip">Deliver concisely; use on‑screen text overlays.</div></div>
+                        <div class="step"><h4>CTA (Last 10%)</h4><div class="tip">Specific next step; link/contact.</div></div>
+                    </div>
+                </div>
+                <p style="margin-top:8px; grid-column: span 2; text-align: center; color: var(--muted)"><strong>Key Tips:</strong> Most people watch with sound off - use text overlays. BUT! People will forgive shaky video but not bad sound.</p>
+            </div>
+        </section>
+
+        <!-- Phase 4 -->
+        <section>
+            <div class="kicker">Phase 4</div>
+            <div class="sec-title">Know Your Platform</div>
+            <div class="platforms">
+                <div class="platform">
+                    <h4>TikTok</h4>
+                    <span class="tag">Gen Z</span><span class="tag">Discovery engine</span><span class="tag">Entertainment</span>
+                    <ul>
+                        <li>Skews younger. Algorithm prioritizes user interests over followers</li>
+                        <li>Built for entertainment, trends, and rapid virality</li>
+                    </ul>
+                </div>
+                <div class="platform">
+                    <h4>Instagram Reels</h4>
+                    <span class="tag">Broader audience</span><span class="tag">Engagement focus</span>
+                    <ul>
+                        <li>Algorithm focuses on engagement with existing followers</li>
+                        <li>Blend of entertainment and polished content</li>
+                    </ul>
+                </div>
+                <div class="platform">
+                    <h4>YouTube Shorts</h4>
+                    <span class="tag">Wide age range</span><span class="tag">Traffic driver</span>
+                    <ul>
+                        <li>Part of larger YouTube ecosystem</li>
+                        <li>Excellent for driving traffic to long‑form videos</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top:8px; grid-column: span 2; text-align: center; color: var(--muted)"><strong>Don't post randomly:</strong> Each platform has different audiences and algorithms. Tailor your content accordingly.</p>
+        </section>
+
+        <!-- Phase 5 -->
+        <section>
+            <div class="kicker">Phase 5</div>
+            <div class="sec-title">Growth & Optimization</div>
+            <div class="kpis">
+                <div class="kpi"><strong>Engagement Rate</strong><small>Likes • comments • shares / views</small></div>
+                <div class="kpi"><strong>Completion Rate</strong><small>% viewers watch entire video</small></div>
+                <div class="kpi"><strong>CTR</strong><small>Traffic to sites/links</small></div>
+                <div class="kpi"><strong>Follower Growth</strong><small>Focus on quality</small></div>
+                <div class="kpi"><strong>Conversion Rate</strong><small>Leads & sales</small></div>
+            </div>
+            <div class="grid two" style="margin-top:12px">
+                <div class="card">
+                    <h3>
+                        <!-- Handshake icon -->
+                        <svg style="margin-right: 6px; position:relative; top:2px; color:var(--accent)" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        Community & Monetization
+                    </h3>
+                    <ul>
+                        <li>Reply to every comment in 24h; make reply‑videos</li>
+                        <li>Live Q&As, user questions → content</li>
+                        <li>Direct sales, lead magnets, partnerships</li>
+                        <li>Affiliate offers; courses & consulting</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>
+                        <!-- Refresh icon -->
+                        <svg style="margin-right: 6px; position:relative; top:2px; color:var(--accent)" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 3v18l18-9z"></path>
+                            </svg>
+                        Continuous Improvement
+                    </h3>
+                    <ol>
+                        <li><strong>Weekly:</strong> Review metrics, iterate hooks.</li>
+                        <li><strong>Monthly:</strong> Rebalance content pillars.</li>
+                        <li><strong>Quarterly:</strong> Competitive scan & trends.</li>
+                        <li><strong>Annual:</strong> Set realistic growth goals.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 6 -->
+        <section>
+            <div class="kicker">Phase 6</div>
+            <div class="sec-title">Advanced Tactics for Virality & Scale</div>
+            <div class="card">
+                <div class="grid two">
+                    <div class="col">
+                        <h3>
+                            <!-- Idea icon -->
+                            <svg style="margin-right: 6px; position:relative; top:2px; color:var(--accent)" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                                </svg>
+                            Viral Triggers
+                        </h3>
+                        <ul>
+                            <li>Emotion</li>
+                            <li>Surprise</li>
+                            <li>Relatability</li>
+                            <li>Education</li>
+                            <li>Trendjacking</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>
+                            <!-- Rocket icon -->
+                            <svg style="margin-right: 6px; position:relative; top:2px; color:var(--accent)" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <polyline points="16,11 18,13 22,9"></polyline>
+                                </svg>
+                            Scaling Strategies
+                        </h3>
+                        <ul>
+                            <li>Repurpose top performers across platforms</li>
+                            <li>Series formats for consistency</li>
+                            <li>Collaborate with niche creators</li>
+                            <li>UGC campaigns & spark ads</li>
+                            <li>Boost proven content with paid</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mistakes -->
+        <section>
+            <div class="sec-title">Common Mistakes to Avoid</div>
+            <div class="mistakes">
+                <div class="mis">
+                    <svg style="color:var(--danger)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Posting inconsistently
+                </div>
+                <div class="mis">
+                    <svg style="color:var(--danger)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Ignoring analytics
+                </div>
+                <div class="mis">
+                    <svg style="color:var(--danger)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Over‑promoting
+                </div>
+                <div class="mis">
+                    <svg style="color:var(--danger)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Poor audio quality
+                </div>
+                <div class="mis">
+                    <svg style="color:var(--danger)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Not engaging with community
+                </div>
+                <div class="mis">
+                    <svg style="color:var(--danger)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Copying without unique value
+                </div>
+                <div class="mis">
+                    <svg style="color:var(--danger)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Chasing vanity metrics
+                </div>
+            </div>
+        </section>
+
+        <!-- 30‑Day Plan -->
+        <section>
+            <div class="sec-title">30‑Day Quick‑Start Plan</div>
+            <div class="launch-sequence">
+                <div class="launch-step-marker"><div class="step-num">1</div></div>
+                <div class="launch-step">
+                    <h4>Weeks 1–2: Foundation</h4>
+                    <ul>
+                        <li>Set up 2–3 platforms</li>
+                        <li>Competitor research</li>
+                        <li>Plan month using content pillars</li>
+                    </ul>
+                </div>
+
+                <div class="launch-step-marker"><div class="step-num">2</div></div>
+                <div class="launch-step">
+                    <h4>Weeks 3–4: Create & Launch</h4>
+                    <ul>
+                        <li>Batch 10–15 videos</li>
+                        <li>Lock posting schedule</li>
+                        <li>Engage your niche daily</li>
+                    </ul>
+                </div>
+
+                <div class="launch-step-marker"><div class="step-num">3</div></div>
+                <div class="launch-step">
+                    <h4>Week 4+: Optimize & Scale</h4>
+                    <ul>
+                        <li>Analyze, double‑down on winners</li>
+                        <li>Expand platforms / collabs</li>
+                        <li>Introduce paid on top hits</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section>
+            <div class="cta">
+                <div>
+                    <h3>Ready to transform your business with short‑form video?</h3>
+                    <p>This blueprint is your foundation. Execution is where most teams need support — strategy, accountability, and iteration.</p>
+                </div>
+                <button class="btn" onclick="window.print()">Download / Print PDF</button>
+            </div>
+        </section>
+
+        <footer style="margin-top:14px; text-align:center; color:var(--muted); font-size:12px; position: relative; z-index: 1;">
+            Built for high‑impact clarity • © <span id="yr"></span> • Oliver Aull 
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById('yr').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
