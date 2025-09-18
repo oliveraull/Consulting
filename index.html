@@ -2729,14 +2729,14 @@
     emailjs.send('service_ostdl0t', 'template_qx653l3', templateParams)
         .then(function(response) {
             console.log('EXIT POPUP SUCCESS!', response);
-            formStatus.innerHTML = 'Success! Check your email for the Blueprint.';
+            formStatus.innerHTML = 'Success! Check your email for the Guideline.';
             formStatus.style.color = '#4ade80'; // green
             emailInput.value = ''; // Clear the input
             
             // Hide popup after success
             setTimeout(() => {
                 hideExitPopup();
-            }, 2000);
+            }, 20000);
         })
         .catch(function(error) {
             console.log('EXIT POPUP FAILED...', error);
