@@ -12,8 +12,8 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5ebe0 100%);
             padding: 40px 20px;
             min-height: 100vh;
         }
@@ -26,19 +26,22 @@
         .header {
             text-align: center;
             margin-bottom: 50px;
-            color: white;
+            color: #5a4a42;
         }
         
         .header h1 {
-            font-size: 42px;
-            font-weight: 700;
+            font-size: 48px;
+            font-weight: 400;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+            color: #4a3933;
         }
         
         .header p {
             font-size: 18px;
-            opacity: 0.95;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #7a6a62;
+            font-weight: 300;
         }
         
         .packages {
@@ -50,78 +53,87 @@
         
         .package {
             background: white;
-            border-radius: 20px;
+            border-radius: 12px;
             padding: 40px 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 20px rgba(197, 165, 145, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             display: flex;
             flex-direction: column;
+            border: 1px solid #f0e6dc;
         }
         
         .package:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+            box-shadow: 0 8px 30px rgba(197, 165, 145, 0.25);
         }
         
         .package.featured {
-            border: 3px solid #667eea;
+            border: 2px solid #d4a574;
             transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(212, 165, 116, 0.2);
         }
         
         .badge {
             position: absolute;
             top: -15px;
             right: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4a574 0%, #c89560 100%);
             color: white;
             padding: 8px 20px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .package-header {
             margin-bottom: 25px;
+            border-bottom: 1px solid #f0e6dc;
+            padding-bottom: 20px;
         }
         
         .package-name {
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #667eea;
+            letter-spacing: 2px;
+            color: #c89560;
             font-weight: 600;
             margin-bottom: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .package-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1a202c;
+            font-size: 32px;
+            font-weight: 400;
+            color: #4a3933;
             margin-bottom: 15px;
+            letter-spacing: 0.5px;
         }
         
         .package-price {
             font-size: 48px;
-            font-weight: 800;
-            color: #1a202c;
+            font-weight: 300;
+            color: #4a3933;
             margin-bottom: 5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .package-price span {
-            font-size: 20px;
-            font-weight: 500;
-            color: #718096;
+            font-size: 18px;
+            font-weight: 400;
+            color: #8a7a72;
         }
         
         .package-description {
-            font-size: 15px;
-            color: #4a5568;
-            line-height: 1.6;
+            font-size: 16px;
+            color: #6a5a52;
+            line-height: 1.7;
             margin-bottom: 30px;
             flex-grow: 1;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .features {
@@ -131,16 +143,17 @@
         
         .features li {
             padding: 12px 0;
-            color: #2d3748;
+            color: #5a4a42;
             font-size: 15px;
             display: flex;
             align-items: flex-start;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .features li:before {
             content: "✓";
-            color: #667eea;
+            color: #d4a574;
             font-weight: bold;
             font-size: 18px;
             margin-right: 12px;
@@ -148,63 +161,72 @@
         }
         
         .best-for {
-            background: #f7fafc;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5ebe0 100%);
+            border-radius: 8px;
             padding: 20px;
             margin-top: auto;
+            border: 1px solid #f0e6dc;
         }
         
         .best-for-title {
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #667eea;
+            letter-spacing: 1px;
+            color: #c89560;
             font-weight: 600;
             margin-bottom: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .best-for-text {
             font-size: 14px;
-            color: #4a5568;
-            line-height: 1.5;
+            color: #6a5a52;
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .footer {
             background: white;
-            border-radius: 20px;
+            border-radius: 12px;
             padding: 40px;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 20px rgba(197, 165, 145, 0.15);
+            border: 1px solid #f0e6dc;
         }
         
         .footer h2 {
-            font-size: 24px;
-            color: #1a202c;
+            font-size: 28px;
+            color: #4a3933;
             margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
         
         .footer p {
             font-size: 16px;
-            color: #4a5568;
-            line-height: 1.7;
+            color: #6a5a52;
+            line-height: 1.8;
             max-width: 800px;
             margin: 0 auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .bonus {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4a574 0%, #c89560 100%);
             color: white;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 8px;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 500;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            letter-spacing: 0.5px;
         }
         
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
             
             .packages {
@@ -311,9 +333,9 @@
         <div class="footer">
             <h2>What Happens After 90 Days?</h2>
             <p>
-                Once you've mastered the content system and are self-sufficient, you can graduate to the <strong>Content Community</strong> ($99/month). Ongoing trend alerts, viral sound recommendations, and peer support without needing 1-on-1 calls.
+                Once you've mastered the content system and are self-sufficient, you can graduate to the <strong>Content Community</strong> ($99/month). You'll get ongoing trend alerts, viral sound recommendations, and peer support without needing 1-on-1 calls.
             </p>
-            <div class="bonus">✨ 90-Day Minimum Commitment • Then Choose to Continue, Graduate or Leave</div>
+            <div class="bonus">✨ 90-Day Minimum Commitment • Then Choose to Continue or Graduate</div>
         </div>
     </div>
 </body>
