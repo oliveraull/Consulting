@@ -44,114 +44,11 @@
             font-weight: 300;
         }
         
-        .entry-product {
-            background: white;
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 50px;
-            box-shadow: 0 4px 20px rgba(197, 165, 145, 0.15);
-            border: 2px solid #d4a574;
-            text-align: center;
-        }
-        
-        .entry-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #d4a574 0%, #c89560 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            margin-bottom: 20px;
-        }
-        
-        .entry-title {
-            font-size: 36px;
-            font-weight: 400;
-            color: #4a3933;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-        
-        .entry-price {
-            font-size: 48px;
-            font-weight: 300;
-            color: #4a3933;
-            margin-bottom: 10px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        
-        .entry-subtitle {
-            font-size: 14px;
-            color: #8a7a72;
-            margin-bottom: 30px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        
-        .entry-description {
-            font-size: 16px;
-            color: #6a5a52;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        
-        .entry-features {
-            list-style: none;
-            max-width: 600px;
-            margin: 0 auto 20px;
-            text-align: left;
-        }
-        
-        .entry-features li {
-            padding: 10px 0;
-            color: #5a4a42;
-            font-size: 14px;
-            display: flex;
-            align-items: flex-start;
-            line-height: 1.5;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        
-        .entry-features li:before {
-            content: "✓";
-            color: #d4a574;
-            font-weight: bold;
-            font-size: 18px;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-        
-        .packages-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .packages-header h2 {
-            font-size: 36px;
-            font-weight: 400;
-            color: #4a3933;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-        
-        .packages-header p {
-            font-size: 16px;
-            color: #7a6a62;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        
         .packages {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
         .package {
@@ -241,7 +138,31 @@
             color: #6a5a52;
             line-height: 1.7;
             margin-bottom: 30px;
-            flex-grow: 1;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .includes-badge {
+            background: linear-gradient(135deg, #f5ebe0 0%, #f0e6dc 100%);
+            border-left: 3px solid #d4a574;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        
+        .includes-badge-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #c89560;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .includes-badge-text {
+            font-size: 13px;
+            color: #5a4a42;
+            line-height: 1.5;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
@@ -317,6 +238,125 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
+        .divider {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+        
+        .divider:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e6d7ca, transparent);
+        }
+        
+        .divider-text {
+            display: inline-block;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5ebe0 100%);
+            padding: 0 30px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c89560;
+            font-weight: 600;
+            position: relative;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .standalone-audit {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(197, 165, 145, 0.15);
+            border: 1px solid #f0e6dc;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .standalone-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .standalone-left {
+            flex: 1;
+        }
+        
+        .standalone-title {
+            font-size: 28px;
+            font-weight: 400;
+            color: #4a3933;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .standalone-subtitle {
+            font-size: 14px;
+            color: #8a7a72;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .standalone-price-box {
+            text-align: right;
+        }
+        
+        .standalone-price {
+            font-size: 42px;
+            font-weight: 300;
+            color: #4a3933;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .standalone-price-label {
+            font-size: 12px;
+            color: #8a7a72;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .standalone-description {
+            font-size: 15px;
+            color: #6a5a52;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .standalone-features {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 20px;
+        }
+        
+        .standalone-features li {
+            padding: 8px 0;
+            color: #5a4a42;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.4;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .standalone-features li:before {
+            content: "✓";
+            color: #d4a574;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 36px;
@@ -326,8 +366,17 @@
                 grid-template-columns: 1fr;
             }
             
-            .package.featured {
-                transform: scale(1);
+            .standalone-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .standalone-price-box {
+                text-align: center;
+            }
+            
+            .standalone-features {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -336,33 +385,7 @@
     <div class="container">
         <div class="header">
             <h1>Social Media Services</h1>
-            <p>Strategic solutions to grow your online presence</p>
-        </div>
-        
-        <!-- Entry Product -->
-        <div class="entry-product">
-            <div class="entry-badge">Start Here</div>
-            <div class="entry-title">Social Media Audit</div>
-            <div class="entry-price">$300</div>
-            <div class="entry-subtitle">One-time service • No ongoing commitment</div>
-            <div class="entry-description">
-                Get clarity on your social media performance and a strategic roadmap before committing to ongoing services. Perfect for businesses seeking actionable insights and direction.
-            </div>
-            
-            <ul class="entry-features">
-                <li>Complete social media account audit across all platforms</li>
-                <li>Performance analysis: engagement, reach, top posts, and follower growth</li>
-                <li>Competitor analysis of 2–3 key competitors in your industry</li>
-                <li>Strategic roadmap with 3–5 actionable recommendations</li>
-                <li>60-minute 1:1 consultation call to review findings</li>
-                <li>7-day follow-up support via email</li>
-            </ul>
-        </div>
-        
-        <!-- Monthly Packages -->
-        <div class="packages-header">
-            <h2>Monthly Service Packages</h2>
-            <p>Ongoing support to build and maintain your social media presence</p>
+            <p>Choose the package that fits your business goals</p>
         </div>
         
         <div class="packages">
@@ -373,6 +396,11 @@
                     <div class="package-title">Foundational Strategy</div>
                     <div class="package-price">$400<span>/month</span></div>
                     <div class="setup-fee">+ $150 one-time setup fee</div>
+                </div>
+                
+                <div class="includes-badge">
+                    <div class="includes-badge-title">Includes</div>
+                    <div class="includes-badge-text">Comprehensive audit & strategy session to start</div>
                 </div>
                 
                 <div class="package-description">
@@ -401,6 +429,11 @@
                     <div class="package-title">Growth Execution</div>
                     <div class="package-price">$1,000<span>/month</span></div>
                     <div class="setup-fee">+ $150 one-time setup fee</div>
+                </div>
+                
+                <div class="includes-badge">
+                    <div class="includes-badge-title">Includes</div>
+                    <div class="includes-badge-text">Comprehensive audit & strategy session to start</div>
                 </div>
                 
                 <div class="package-description">
@@ -432,6 +465,11 @@
                     <div class="setup-fee">+ $150 one-time setup fee</div>
                 </div>
                 
+                <div class="includes-badge">
+                    <div class="includes-badge-title">Includes</div>
+                    <div class="includes-badge-text">Comprehensive audit & strategy session to start</div>
+                </div>
+                
                 <div class="package-description">
                     Complete done-for-you social media management. We handle everything so you can focus on your business.
                 </div>
@@ -457,6 +495,38 @@
             </div>
         </div>
         
+        <!-- Divider -->
+        <div class="divider">
+            <span class="divider-text">Not Ready to Commit?</span>
+        </div>
+        
+        <!-- Standalone Audit -->
+        <div class="standalone-audit">
+            <div class="standalone-header">
+                <div class="standalone-left">
+                    <div class="standalone-title">Start with Just an Audit</div>
+                    <div class="standalone-subtitle">One-time service • No ongoing commitment</div>
+                </div>
+                <div class="standalone-price-box">
+                    <div class="standalone-price">$300</div>
+                    <div class="standalone-price-label">One-time</div>
+                </div>
+            </div>
+            
+            <div class="standalone-description">
+                Get clarity on your social media performance and a strategic roadmap. Perfect for businesses who want to see the value before committing to ongoing services.
+            </div>
+            
+            <ul class="standalone-features">
+                <li>Complete social media account audit</li>
+                <li>Performance analysis & insights</li>
+                <li>Competitor analysis (2–3 competitors)</li>
+                <li>Strategic roadmap with 3–5 recommendations</li>
+                <li>60-minute consultation call</li>
+                <li>7-day email support</li>
+            </ul>
+        </div>
+        
         <footer style="margin-top: 60px; padding-top: 30px; border-top: 1px solid #e6d7ca; text-align: center;">
             <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #c89560; font-weight: 600; margin-bottom: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Disclaimer</div>
             <div style="font-size: 13px; color: #8a7a72; line-height: 1.6; max-width: 800px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
@@ -466,4 +536,4 @@
         
     </div>
 </body>
-</html>
+</html
