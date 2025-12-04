@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Content Packages</title>
+    <title>Social Media Services</title>
     <style>
         * {
             margin: 0;
@@ -44,34 +44,106 @@
             font-weight: 300;
         }
         
-        .setup-fee-banner {
+        .entry-product {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(197, 165, 145, 0.15);
+            border: 2px solid #d4a574;
+            text-align: center;
+        }
+        
+        .entry-badge {
+            display: inline-block;
             background: linear-gradient(135deg, #d4a574 0%, #c89560 100%);
             color: white;
-            padding: 20px 30px;
-            border-radius: 12px;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin-bottom: 20px;
+        }
+        
+        .entry-title {
+            font-size: 36px;
+            font-weight: 400;
+            color: #4a3933;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        
+        .entry-price {
+            font-size: 48px;
+            font-weight: 300;
+            color: #4a3933;
+            margin-bottom: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .entry-subtitle {
+            font-size: 14px;
+            color: #8a7a72;
+            margin-bottom: 30px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .entry-description {
+            font-size: 16px;
+            color: #6a5a52;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .entry-features {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            text-align: left;
+        }
+        
+        .entry-features li {
+            padding: 10px 0;
+            color: #5a4a42;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .entry-features li:before {
+            content: "✓";
+            color: #d4a574;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .packages-header {
             text-align: center;
             margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
         }
         
-        .setup-fee-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-weight: 600;
+        .packages-header h2 {
+            font-size: 36px;
+            font-weight: 400;
+            color: #4a3933;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
         }
         
-        .setup-fee-price {
-            font-size: 32px;
-            font-weight: 300;
-            margin-bottom: 8px;
-        }
-        
-        .setup-fee-description {
-            font-size: 14px;
-            opacity: 0.95;
+        .packages-header p {
+            font-size: 16px;
+            color: #7a6a62;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
@@ -143,15 +215,6 @@
             letter-spacing: 0.5px;
         }
         
-        .original-price {
-            font-size: 13px;
-            color: #b5a59d;
-            text-decoration: line-through;
-            font-weight: 300;
-            margin-bottom: 5px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        
         .package-price {
             font-size: 48px;
             font-weight: 300;
@@ -164,6 +227,13 @@
             font-size: 18px;
             font-weight: 400;
             color: #8a7a72;
+        }
+        
+        .setup-fee {
+            font-size: 12px;
+            color: #8a7a72;
+            margin-top: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .package-description {
@@ -247,32 +317,6 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
-        .disclaimer {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            margin-top: 40px;
-            border: 1px solid #f0e6dc;
-            box-shadow: 0 4px 20px rgba(197, 165, 145, 0.15);
-        }
-        
-        .disclaimer-title {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #c89560;
-            font-weight: 600;
-            margin-bottom: 15px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        
-        .disclaimer-text {
-            font-size: 14px;
-            color: #6a5a52;
-            line-height: 1.8;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 36px;
@@ -291,104 +335,124 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Social Media Content Packages</h1>
-            <p>Choose the package that fits your medspa's goals and capacity</p>
+            <h1>Social Media Services</h1>
+            <p>Strategic solutions to grow your online presence</p>
+        </div>
+        
+        <!-- Entry Product -->
+        <div class="entry-product">
+            <div class="entry-badge">Start Here</div>
+            <div class="entry-title">Social Media Audit</div>
+            <div class="entry-price">$300</div>
+            <div class="entry-subtitle">One-time service • No ongoing commitment</div>
+            <div class="entry-description">
+                Get clarity on your social media performance and a strategic roadmap before committing to ongoing services. Perfect for businesses seeking actionable insights and direction.
+            </div>
+            
+            <ul class="entry-features">
+                <li>Complete social media account audit across all platforms</li>
+                <li>Performance analysis: engagement, reach, top posts, and follower growth</li>
+                <li>Competitor analysis of 2–3 key competitors in your industry</li>
+                <li>Strategic roadmap with 3–5 actionable recommendations</li>
+                <li>60-minute 1:1 consultation call to review findings</li>
+                <li>7-day follow-up support via email</li>
+            </ul>
+        </div>
+        
+        <!-- Monthly Packages -->
+        <div class="packages-header">
+            <h2>Monthly Service Packages</h2>
+            <p>Ongoing support to build and maintain your social media presence</p>
         </div>
         
         <div class="packages">
-            <!-- Starter Package -->
+            <!-- Tier 1: Foundational Strategy -->
             <div class="package">
                 <div class="package-header">
-                    <div class="package-name">S – Starter</div>
-                    <div class="package-title">Foundation</div>
-                    <div class="original-price">$700</div>
-                    <div class="package-price">$300<span>/month</span></div>
-                    <div style="font-size: 12px; color: #8a7a72; margin-top: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">+ $150 one-time setup fee</div>
+                    <div class="package-name">Tier 1</div>
+                    <div class="package-title">Foundational Strategy</div>
+                    <div class="package-price">$400<span>/month</span></div>
+                    <div class="setup-fee">+ $150 one-time setup fee</div>
                 </div>
                 
                 <div class="package-description">
-                    Perfect for medspas who want strategic direction but prefer to handle execution in-house.
+                    Strategic direction and planning for businesses with internal resources to handle content execution.
                 </div>
                 
                 <ul class="features">
-                    <li>1 strategy call per month (30 minutes)</li>
-                    <li>10 custom content ideas (high-level concepts and angles, not full scripts)</li>
-                    <li>Hook and CTA frameworks (formulas, not word-for-word scripts)</li>
+                    <li>Monthly content calendar (1–2 platforms)</li>
+                    <li>Audience personas & content pillars</li>
+                    <li>High-level social media strategy framework</li>
+                    <li>10 content ideas per month</li>
                     <li>Email support (24-hour response)</li>
+                </ul>
+                
+                <div class="best-for">
+                    <div class="best-for-title">Best For:</div>
+                    <div class="best-for-text">Businesses with team members who can handle posting, editing, and engagement, but need strategic direction.</div>
+                </div>
+            </div>
+            
+            <!-- Tier 2: Growth Execution -->
+            <div class="package featured">
+                <div class="badge">Most Popular</div>
+                <div class="package-header">
+                    <div class="package-name">Tier 2</div>
+                    <div class="package-title">Growth Execution</div>
+                    <div class="package-price">$1,000<span>/month</span></div>
+                    <div class="setup-fee">+ $150 one-time setup fee</div>
+                </div>
+                
+                <div class="package-description">
+                    Comprehensive guidance with partial execution support for businesses ready to grow consistently.
+                </div>
+                
+                <ul class="features">
+                    <li><strong>Monthly content calendar</strong> (1–2 platforms)</li>
+                    <li><strong>20 content ideas with basic captions</strong></li>
+                    <li>Competitor snapshot & benchmarking</li>
+                    <li><strong>Up to 20 posts/month</strong> with minimal design assets</li>
+                    <li>Engagement monitoring with comment/DM response guidance</li>
+                    <li><strong>Bi-weekly 30-minute strategy calls</strong></li>
+                    <li>Email/phone support for quick questions</li>
+                </ul>
+                
+                <div class="best-for">
+                    <div class="best-for-title">Best For:</div>
+                    <div class="best-for-text">Businesses ready to scale their social presence with expert guidance and support throughout the process.</div>
+                </div>
+            </div>
+            
+            <!-- Tier 3: Premium Full-Service -->
+            <div class="package">
+                <div class="package-header">
+                    <div class="package-name">Tier 3</div>
+                    <div class="package-title">Premium Full-Service</div>
+                    <div class="package-price">$1,600<span>/month</span></div>
+                    <div class="setup-fee">+ $150 one-time setup fee</div>
+                </div>
+                
+                <div class="package-description">
+                    Complete done-for-you social media management. We handle everything so you can focus on your business.
+                </div>
+                
+                <ul class="features">
+                    <li><strong>Everything in Growth Execution package</strong></li>
+                    <li><strong>Full content creation & professional editing</strong></li>
+                    <li><strong>Unlimited posting across all platforms</strong></li>
+                    <li>Quarterly audits with detailed analytics reports</li>
+                    <li>Advanced campaign strategy</li>
+                    <li>Optional paid ad management</li>
                 </ul>
                 
                 <div class="note-box">
                     <div class="note-title">NOTE:</div>
-                    <div class="note-text">Starter includes content concepts and strategic frameworks only. Full scripting is available in higher tiers.</div>
+                    <div class="note-text">Client is responsible for providing raw footage or materials. Content creation and posting begin once materials are delivered.</div>
                 </div>
                 
                 <div class="best-for">
                     <div class="best-for-title">Best For:</div>
-                    <div class="best-for-text">Medspas with a team that can film and edit, but need creative direction and strategy.</div>
-                </div>
-            </div>
-            
-            <!-- Growth Package -->
-            <div class="package featured">
-                <div class="badge">Most Popular</div>
-                <div class="package-header">
-                    <div class="package-name">M – Growth</div>
-                    <div class="package-title">Accelerator</div>
-                    <div class="original-price">$1,400</div>
-                    <div class="package-price">$800<span>/month</span></div>
-                    <div style="font-size: 12px; color: #8a7a72; margin-top: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">+ $150 one-time setup fee</div>
-                </div>
-                
-                <div class="package-description">
-                    Hands-on guidance with detailed instruction on what to film, how to film it, and expert feedback on every video.
-                </div>
-                
-                <ul class="features">
-                    <li><strong>Two strategy calls per month</strong> (30 min each)</li>
-                    <li><strong>Twenty content ideas in monthly calendar format</strong></li>
-                    <li>Detailed "what to film & how" recording guides</li>
-                    <li><strong>Review & feedback on up to 8 videos per month</strong></li>
-                    <li>Hook development and script structuring</li>
-                    <li>Caption direction and CTA copy</li>
-                    <li>Priority email or DM support</li>
-                </ul>
-                
-                <div class="best-for">
-                    <div class="best-for-title">Best For:</div>
-                    <div class="best-for-text">Medspas ready to grow fast with consistent content and need accountability plus expert eyes on every piece.</div>
-                </div>
-            </div>
-            
-            <!-- Premium Package -->
-            <div class="package">
-                <div class="package-header">
-                    <div class="package-name">L – Premium</div>
-                    <div class="package-title">Full-Service</div>
-                    <div class="original-price">$2,500</div>
-                    <div class="package-price">$1,400<span>/month</span></div>
-                    <div style="font-size: 12px; color: #8a7a72; margin-top: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">+ $150 one-time setup fee</div>
-                </div>
-                
-                <div class="package-description">
-                    Complete done-for-you service. You film, I handle everything else. Editing, captions, posting, and strategy.
-                </div>
-                
-                <ul class="features">
-                    <li><strong>Everything in Growth package</strong></li>
-                    <li><strong>Professional editing for 20 videos/month</strong></li>
-                    <li><strong>Posting & scheduling handled for you</strong></li>
-                    <li>Monthly performance analytics review</li>
-                    <li>Priority support</li>
-                </ul>
-                
-                <div class="note-box">
-                    <div class="note-title">IMPORTANT:</div>
-                    <div class="note-text">Client is responsible for providing raw footage monthly. Editing and posting begin once footage is delivered.</div>
-                </div>
-                
-                <div class="best-for">
-                    <div class="best-for-title">Best For:</div>
-                    <div class="best-for-text">Busy medspa owners who want premium results without spending time on editing or posting. Just film and I handle the rest.</div>
+                    <div class="best-for-text">Business owners who want premium results and complete management without touching content creation themselves.</div>
                 </div>
             </div>
         </div>
