@@ -1166,7 +1166,7 @@
     </ul>
     <p class="footer-copy">© 2025 ClearView Window Cleaning. All rights reserved.</p>
 </footer>
-
+ 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
@@ -1179,12 +1179,17 @@
             }
         });
     }, { threshold: 0.12 });
-
+ 
     document.querySelectorAll('.fade-in').forEach((el, i) => {
         el.dataset.delay = (i % 4) * 80;
         observer.observe(el);
     });
-
+ 
     // Nav shadow on scroll
     window.addEventListener('scroll', () => {
-        const nav = docum
+        const nav = document.querySelector('nav');
+        nav.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(13,46,74,0.08)' : 'none';
+    });
+</script>
+</body>
+</html>
