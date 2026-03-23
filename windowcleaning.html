@@ -181,7 +181,7 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 2.8rem;
+            margin-bottom: 1.4rem;
         }
 
         .btn-primary {
@@ -228,160 +228,56 @@
             color: var(--blue);
         }
 
-        .hero-trust {
+        /* hero trust removed */
+
+        /* Hero overview pills */
+        .hero-overview {
             display: flex;
-            gap: 1.8rem;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 0rem;
         }
 
-        .trust-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .trust-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: var(--navy);
-            line-height: 1;
-        }
-
-        .trust-label {
-            font-size: 0.78rem;
-            color: var(--grey);
-            font-weight: 500;
-            margin-top: 3px;
-        }
-
-        .trust-divider {
-            width: 1px;
-            height: 36px;
-            background: rgba(13,46,74,0.15);
-        }
-
-        /* Hero visual card */
-        .hero-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .window-card {
-            width: 340px;
-            height: 420px;
-            background: var(--white);
-            border-radius: 28px;
-            box-shadow: 0 30px 80px rgba(13,46,74,0.15), 0 0 0 1px rgba(42,130,197,0.08);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .window-card-top {
-            height: 55%;
-            background: linear-gradient(180deg, #B8DCF0 0%, #7BBFE8 60%, #5BA8D8 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Simulate a clean window with a shine effect */
-        .window-panes {
-            position: absolute;
-            inset: 14px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 8px;
-        }
-
-        .pane {
-            background: rgba(255,255,255,0.18);
-            border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.35);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pane::after {
-            content: '';
-            position: absolute;
-            top: 10%; left: 10%;
-            width: 30%; height: 40%;
-            background: rgba(255,255,255,0.55);
-            border-radius: 2px;
-            transform: rotate(-15deg);
-        }
-
-        .window-frame {
-            position: absolute;
-            inset: 0;
-            border: 10px solid rgba(255,255,255,0.3);
-            border-radius: 14px;
-            pointer-events: none;
-        }
-
-        .window-card-body {
-            padding: 22px 24px;
-        }
-
-        .card-badge {
+        .overview-item {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: #E6F7EC;
-            color: #2E7D4F;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 5px 12px;
-            border-radius: 50px;
-            margin-bottom: 12px;
-        }
-
-        .card-badge i { font-size: 0.65rem; }
-
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--navy);
-            margin-bottom: 8px;
-        }
-
-        .card-detail {
+            gap: 7px;
+            background: rgba(42,130,197,0.08);
+            border: 1px solid rgba(42,130,197,0.18);
+            color: var(--blue-dark);
             font-size: 0.82rem;
-            color: var(--grey);
-            line-height: 1.6;
-            margin-bottom: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: all 0.2s;
         }
 
-        .card-rating {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+        .overview-item i { color: var(--blue); font-size: 0.75rem; }
+        .overview-item:hover { background: rgba(42,130,197,0.15); border-color: var(--blue); }
 
-        .stars { color: #F9A825; font-size: 0.8rem; letter-spacing: 1px; }
-
-        .rating-text { font-size: 0.78rem; color: var(--grey); }
-
-        /* Floating badge */
-        .float-badge {
-            position: absolute;
-            top: -18px; right: -18px;
+        /* Hero info card */
+        .hero-info-card {
             background: var(--white);
-            border-radius: 18px;
-            padding: 14px 18px;
-            box-shadow: 0 10px 30px rgba(13,46,74,0.15);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: float-up 4s ease-in-out infinite;
+            border-radius: 24px;
+            box-shadow: 0 24px 70px rgba(13,46,74,0.13), 0 0 0 1px rgba(42,130,197,0.08);
+            padding: 28px;
+            width: 100%;
+            max-width: 400px;
         }
 
-        .float-icon {
-            width: 40px; height: 40px;
-            background: var(--sky);
-            border-radius: 12px;
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(42,130,197,0.1);
+        }
+
+        .info-icon-wrap {
+            width: 46px; height: 46px;
+            background: linear-gradient(135deg, var(--sky), var(--sky-mid));
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -389,32 +285,104 @@
             font-size: 1.1rem;
         }
 
-        .float-text { font-size: 0.78rem; }
-        .float-text strong { display: block; color: var(--navy); font-weight: 700; }
-        .float-text span { color: var(--grey); }
-
-        .float-badge-2 {
-            position: absolute;
-            bottom: -18px; left: -18px;
-            background: var(--navy);
-            color: var(--white);
-            border-radius: 18px;
-            padding: 12px 16px;
-            box-shadow: 0 10px 30px rgba(13,46,74,0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: float-up 4s ease-in-out infinite;
-            animation-delay: -2s;
+        .info-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
         }
 
-        .float-badge-2 i { color: var(--accent); font-size: 1.1rem; }
-        .float-badge-2 .float-text strong { color: var(--white); }
-        .float-badge-2 .float-text span { color: rgba(255,255,255,0.6); }
+        .info-card-sub {
+            font-size: 0.78rem;
+            color: var(--grey);
+            margin-top: 2px;
+        }
 
-        @keyframes float-up {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 14px;
+            border-radius: 12px;
+            background: var(--off-white);
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .info-row:hover {
+            border-color: rgba(42,130,197,0.15);
+            background: var(--sky);
+        }
+
+        .info-row-icon {
+            width: 34px; height: 34px;
+            min-width: 34px;
+            background: var(--white);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+            font-size: 0.85rem;
+            box-shadow: 0 2px 6px rgba(42,130,197,0.1);
+        }
+
+        .info-row-text {
+            flex: 1;
+        }
+
+        .info-row-text strong {
+            display: block;
+            font-size: 0.84rem;
+            color: var(--navy);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .info-row-text span {
+            font-size: 0.75rem;
+            color: var(--grey);
+        }
+
+        .info-check {
+            color: #3DAA6A;
+            font-size: 0.9rem;
+        }
+
+        .info-card-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--blue);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 13px;
+            border-radius: 12px;
+            transition: all 0.25s;
+            box-shadow: 0 6px 20px rgba(42,130,197,0.25);
+        }
+
+        .info-card-cta:hover {
+            background: var(--blue-dark);
+            box-shadow: 0 8px 26px rgba(42,130,197,0.35);
+            gap: 12px;
+        }
+
+        /* Hero visual wrapper */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* ── SERVICES ── */
@@ -919,7 +887,7 @@
         <div class="hero-content">
             <div class="hero-eyebrow">
                 <i class="fas fa-circle-check"></i>
-                Serving the greater area since 2012
+                Professional · Reliable · Streak-Free
             </div>
             <h1>Windows So Clean<br>They <em>Disappear</em></h1>
             <p class="hero-sub">Professional residential and commercial window cleaning that leaves your glass spotless, streak-free, and crystal clear — guaranteed.</p>
@@ -927,58 +895,67 @@
                 <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i> Book a Service</a>
                 <a href="#services" class="btn-secondary"><i class="fas fa-play-circle"></i> See Our Work</a>
             </div>
-            <div class="hero-trust">
-                <div class="trust-item">
-                    <span class="trust-num">500+</span>
-                    <span class="trust-label">Happy Clients</span>
-                </div>
-                <div class="trust-divider"></div>
-                <div class="trust-item">
-                    <span class="trust-num">4.9★</span>
-                    <span class="trust-label">Avg. Rating</span>
-                </div>
-                <div class="trust-divider"></div>
-                <div class="trust-item">
-                    <span class="trust-num">12yr</span>
-                    <span class="trust-label">In Business</span>
-                </div>
+            <div class="hero-overview">
+                <div class="overview-item"><i class="fas fa-house"></i> Residential</div>
+                <div class="overview-item"><i class="fas fa-building"></i> Commercial</div>
+                <div class="overview-item"><i class="fas fa-solar-panel"></i> Solar Panels</div>
+                <div class="overview-item"><i class="fas fa-water"></i> Gutters</div>
+                <div class="overview-item"><i class="fas fa-calendar-days"></i> Maintenance Plans</div>
             </div>
         </div>
 
         <div class="hero-visual">
-            <div class="float-badge">
-                <div class="float-icon"><i class="fas fa-shield-check"></i></div>
-                <div class="float-text">
-                    <strong>Fully Insured</strong>
-                    <span>Licensed & bonded</span>
-                </div>
-            </div>
-            <div class="window-card">
-                <div class="window-card-top">
-                    <div class="window-panes">
-                        <div class="pane"></div>
-                        <div class="pane"></div>
-                        <div class="pane"></div>
-                        <div class="pane"></div>
-                    </div>
-                    <div class="window-frame"></div>
-                </div>
-                <div class="window-card-body">
-                    <div class="card-badge"><i class="fas fa-circle-check"></i> Job Completed</div>
-                    <div class="card-title">Residential Deep Clean</div>
-                    <div class="card-detail">All exterior & interior panes — streak-free, inside and out. Screens cleaned and reinstalled.</div>
-                    <div class="card-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-text">Verified review · 2 days ago</span>
+            <div class="hero-info-card">
+                <div class="info-card-header">
+                    <div class="info-icon-wrap"><i class="fas fa-sparkles"></i></div>
+                    <div>
+                        <div class="info-card-title">What We Offer</div>
+                        <div class="info-card-sub">Residential & Commercial</div>
                     </div>
                 </div>
-            </div>
-            <div class="float-badge-2">
-                <i class="fas fa-droplet"></i>
-                <div class="float-text">
-                    <strong>Eco-Friendly</strong>
-                    <span>Pure water system</span>
+                <div class="info-list">
+                    <div class="info-row">
+                        <div class="info-row-icon"><i class="fas fa-house"></i></div>
+                        <div class="info-row-text">
+                            <strong>Residential Window Cleaning</strong>
+                            <span>Interior, exterior, screens & sills</span>
+                        </div>
+                        <i class="fas fa-circle-check info-check"></i>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-row-icon"><i class="fas fa-building"></i></div>
+                        <div class="info-row-text">
+                            <strong>Commercial Window Cleaning</strong>
+                            <span>Offices, storefronts & more</span>
+                        </div>
+                        <i class="fas fa-circle-check info-check"></i>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-row-icon"><i class="fas fa-solar-panel"></i></div>
+                        <div class="info-row-text">
+                            <strong>Solar Panel Cleaning</strong>
+                            <span>Restore efficiency, scratch-free</span>
+                        </div>
+                        <i class="fas fa-circle-check info-check"></i>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-row-icon"><i class="fas fa-water"></i></div>
+                        <div class="info-row-text">
+                            <strong>Gutter Cleaning</strong>
+                            <span>Clear clogs, prevent damage</span>
+                        </div>
+                        <i class="fas fa-circle-check info-check"></i>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-row-icon"><i class="fas fa-calendar-days"></i></div>
+                        <div class="info-row-text">
+                            <strong>Maintenance Plans</strong>
+                            <span>Monthly, seasonal & recurring</span>
+                        </div>
+                        <i class="fas fa-circle-check info-check"></i>
+                    </div>
                 </div>
+                <a href="#contact" class="info-card-cta">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -1016,12 +993,7 @@
             <p>Clogged gutters lead to costly water damage. Our thorough gutter clean-out protects your home year-round.</p>
             <a href="#contact" class="service-link">Get a quote <i class="fas fa-arrow-right"></i></a>
         </div>
-        <div class="service-card fade-in">
-            <div class="service-icon"><i class="fas fa-spray-can-sparkles"></i></div>
-            <h3>Pressure Washing</h3>
-            <p>Driveways, patios, siding, and more. We blast away grime, mold, and stains to make your exterior look brand new.</p>
-            <a href="#contact" class="service-link">Get a quote <i class="fas fa-arrow-right"></i></a>
-        </div>
+        
         <div class="service-card fade-in">
             <div class="service-icon"><i class="fas fa-calendar-days"></i></div>
             <h3>Maintenance Plans</h3>
@@ -1040,20 +1012,20 @@
             <p class="section-sub">We're not just another cleaning crew. We're detail-obsessed professionals who treat your home like our own.</p>
             <div class="why-stats">
                 <div class="why-stat">
-                    <div class="why-stat-num">500+</div>
-                    <div class="why-stat-label">Properties cleaned</div>
-                </div>
-                <div class="why-stat">
                     <div class="why-stat-num">100%</div>
                     <div class="why-stat-label">Satisfaction guarantee</div>
                 </div>
                 <div class="why-stat">
-                    <div class="why-stat-num">12yr</div>
-                    <div class="why-stat-label">Industry experience</div>
-                </div>
-                <div class="why-stat">
                     <div class="why-stat-num">48hr</div>
                     <div class="why-stat-label">Avg. response time</div>
+                </div>
+                <div class="why-stat">
+                    <div class="why-stat-num">0</div>
+                    <div class="why-stat-label">Streak complaints</div>
+                </div>
+                <div class="why-stat">
+                    <div class="why-stat-num">Free</div>
+                    <div class="why-stat-label">Estimates, always</div>
                 </div>
             </div>
         </div>
@@ -1173,7 +1145,7 @@
         <p class="section-sub">No obligation, no pressure. Just a fast, fair estimate for sparkling clean windows.</p>
         <div class="cta-buttons">
             <a href="tel:+16265550123" class="btn-primary"><i class="fas fa-phone"></i> Call (626) 555-0123</a>
-            <a href="mailto:hello@clearviewclean.com" class="btn-secondary"><i class="fas fa-envelope"></i> Send an Email</a>
+            <a href="/cdn-cgi/l/email-protection#b2dad7dededdf2d1ded7d3c0c4dbd7c5d1ded7d3dc9cd1dddf" class="btn-secondary"><i class="fas fa-envelope"></i> Send an Email</a>
         </div>
         <div class="cta-perks">
             <span class="cta-perk"><i class="fas fa-circle-check"></i> Free estimates</span>
@@ -1195,7 +1167,7 @@
     <p class="footer-copy">© 2025 ClearView Window Cleaning. All rights reserved.</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, i) => {
@@ -1215,9 +1187,4 @@
 
     // Nav shadow on scroll
     window.addEventListener('scroll', () => {
-        const nav = document.querySelector('nav');
-        nav.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(13,46,74,0.08)' : 'none';
-    });
-</script>
-</body>
-</html>
+        const nav = docum
